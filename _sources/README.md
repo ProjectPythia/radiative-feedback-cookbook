@@ -1,12 +1,12 @@
 <img src="thumbnail.png" alt="thumbnail" width="300"/>
 
-# (Replace_with_your_title) Cookbook
+# Radiative Feedback Cookbook
 
 [![nightly-build](https://github.com/brian-rose/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/brian-rose/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/brian-rose/radiative-feedback-cookbook/main?labpath=notebooks)
 [![DOI](https://zenodo.org/badge/810464558.svg)](https://zenodo.org/badge/latestdoi/810464558)
 
-This Project Pythia Cookbook covers ... (replace `...` with the main subject of your cookbook ... e.g., _working with radar data in Python_)
+This Project Pythia Cookbook explores the fundamental science and practice of radiative feedback analysis applied to climate model output.
 
 ## Motivation
 
