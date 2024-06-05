@@ -2,8 +2,8 @@
 
 # Radiative Feedback Cookbook
 
-[![nightly-build](https://github.com/brian-rose/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/brian-rose/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/brian-rose/radiative-feedback-cookbook/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythia/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml)
+[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/radiative-feedback-cookbook/main?labpath=notebooks)
 [![DOI](https://zenodo.org/badge/810464558.svg)](https://zenodo.org/badge/latestdoi/810464558)
 
 This Project Pythia Cookbook explores the fundamental science and practice of radiative feedback analysis applied to climate model output.
@@ -18,8 +18,8 @@ This Project Pythia Cookbook explores the fundamental science and practice of ra
 
 ### Contributors
 
-<a href="https://github.com/brian-rose/radiative-feedback-cookbook/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=brian-rose/radiative-feedback-cookbook" />
+<a href="https://github.com/ProjectPythia/radiative-feedback-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/radiative-feedback-cookbook" />
 </a>
 
 ## Structure
@@ -59,22 +59,20 @@ Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyt
 
 If you are interested in running this material locally on your computer, you will need to follow this workflow:
 
-(Replace "cookbook-example" with the title of your cookbooks)
-
-1. Clone the `https://github.com/ProjectPythia/cookbook-example` repository:
+1. Clone the `https://github.com/ProjectPythia/radiative-feedback-cookbook` repository:
 
    ```bash
-    git clone https://github.com/ProjectPythia/cookbook-example.git
+    git clone https://github.com/ProjectPythia/radiative-feedback-cookbook.git
    ```
 
-1. Move into the `cookbook-example` directory
+1. Move into the `radiative-feedback-cookbook` directory
    ```bash
-   cd cookbook-example
+   cd radiative-feedback-cookbook
    ```
 1. Create and activate your conda environment from the `environment.yml` file
    ```bash
    conda env create -f environment.yml
-   conda activate cookbook-example
+   conda activate feedback-cookbook-dev
    ```
 1. Move into the `notebooks` directory and start up Jupyterlab
    ```bash
