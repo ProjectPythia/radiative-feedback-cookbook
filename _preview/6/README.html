@@ -422,7 +422,8 @@
 <p>This Project Pythia Cookbook explores the fundamental science and practice of radiative feedback analysis applied to climate model output.</p>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>(Add a few sentences stating why this cookbook will be useful. What skills will you, “the chef”, gain once you have reached the end of the cookbook?)</p>
+<p>There are several well-established methods for quantifying radiative feedbacks from climate model output, and these have been widely used in the scientific literature. However, a comprehensive set of tutorials representing best practices for implementing these methods has been lacking, forcing new practioners to “reinvent the wheel” and piece together the implementation details from sometimes incomplete descriptions in the primary literature.</p>
+<p>This Cookbook aims to fill this gap by collecting a verbose set of tutorials that take the reader through some of the basic theory and implementation details, with plentiful example code that can be easily adapted to new datasets and new research applications. The examples will skew heavily toward the method of <em>radiative kernels</em>, with some comparison to other methods.</p>
 </section>
 <section id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
@@ -436,14 +437,18 @@
 </section>
 <section id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>(State one or more sections that will comprise the notebook. E.g., <em>This cookbook is broken up into two main sections - “Foundations” and “Example Workflows.”</em> Then, describe each section below.)</p>
-<section id="section-1-replace-with-the-title-of-this-section-e-g-foundations">
-<h3>Section 1 ( Replace with the title of this section, e.g. “Foundations” )<a class="headerlink" href="#section-1-replace-with-the-title-of-this-section-e-g-foundations" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>(Add content for this section, e.g., “The foundational content includes … “)</p>
+<p>This Cookbook is organized as follows:</p>
+<section id="foundations">
+<h3>Foundations<a class="headerlink" href="#foundations" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>This section takes the reader through some of the basic ideas and provides an overview of the mathematical theory underlying the radiative kernel method.</p>
 </section>
-<section id="section-2-replace-with-the-title-of-this-section-e-g-example-workflows">
-<h3>Section 2 ( Replace with the title of this section, e.g. “Example workflows” )<a class="headerlink" href="#section-2-replace-with-the-title-of-this-section-e-g-example-workflows" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>(Add content for this section, e.g., “Example workflows include … “)</p>
+<section id="feedback-analysis">
+<h3>Feedback Analysis<a class="headerlink" href="#feedback-analysis" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>This section links the theory to the practice by demonstrating the detailed implementation of some radiative feedback calculations.</p>
+</section>
+<section id="simplifying-calculations">
+<h3>Simplifying Calculations<a class="headerlink" href="#simplifying-calculations" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>This section gives more practical example code for carrying out feedback calculations on CMIP6 data, making use of some specialized software packages.</p>
 </section>
 </section>
 <section id="running-the-notebooks">
@@ -567,8 +572,9 @@ jupyter<span class="w"> </span>lab
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-replace-with-the-title-of-this-section-e-g-foundations">Section 1 ( Replace with the title of this section, e.g. “Foundations” )</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-replace-with-the-title-of-this-section-e-g-example-workflows">Section 2 ( Replace with the title of this section, e.g. “Example workflows” )</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#foundations">Foundations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-analysis">Feedback Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifying-calculations">Simplifying Calculations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">Running the Notebooks</a><ul class="nav section-nav flex-column">
