@@ -489,13 +489,17 @@ R = F_{in} - F_{out}
 <p>Other typical conventions of the same values used within the community:</p>
 <ul class="simple">
 <li><p>R = N (e.g. Gregory et al. 2004);</p></li>
+<li><p>R = H (e.g. Dessler and Zelinka 2015);</p></li>
 <li><p>F = <span class="math notranslate nohighlight">\(\Delta\)</span>Q  (e.g. Bony et al. 2006);</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda\)</span> = <span class="math notranslate nohighlight">\(\alpha\)</span> (e.g. Gregory et al. 2004);</p></li>
 </ul>
 <p>SOS on font settings and adding links and splitting into paragraphs</p>
 <div class="admonition alert alert-info">
 <p class="admonition-title">Info</p>
-<p>As you explore the feedback-forcing space, you may stumble upon the term climate sensitivity, which is the relationship between the magnitude of the climate change response and the doubling-CO2 forcing, which has the unit in Kelvin. Ch.10 Climate Sensitivity and Feedback Mechanisms in the Global Physical Climatology (Hartmann 2016) provides a holistic overview on the topic, and Sherwood et al. 2020 would provide the most up-to-date understanding on equilibrium climate sensitivity (ECS) within the community.</p>
+<p>As you explore the feedback-forcing space, you may stumble upon the term climate sensitivity, which is the relationship between the magnitude of the climate change response and the doubling-CO2 forcing with the unit in Kelvin. \begin{equation*}
+ECS = \frac{1}{\lambda}
+\end{equation*}
+This metric tells how much the climate system would warm per unit of radiative forcing (typically doubling of <span class="math notranslate nohighlight">\(CO_{2}\)</span>. Ch.10 Climate Sensitivity and Feedback Mechanisms in the Global Physical Climatology (Hartmann 2016) and the chapter “Climate Feedbacks” in the Encyclopedia of Atmospheric Sciences (Dessler and Zelinka 2015) provide a holistic overview on the topic, and Sherwood et al. 2020 would provide the most up-to-date understanding on equilibrium climate sensitivity (ECS) within the community.</p>
 </div>
 </section>
 <section id="radiative-feedback-lambda">
@@ -509,7 +513,8 @@ R = F_{in} - F_{out}
 \[\begin{equation*}
 \lambda = \frac{\partial R}{\partial T_{s}} = \sum^{x} \frac{\partial R}{\partial x} \frac{\partial x}{\partial T_{s}} + \sum \sum \frac{\partial ^{2}R}{\partial x \partial y} \frac{\partial x \partial y}{\partial T_{s}^{2}} + ...
 \end{equation*}\]</div>
-<p>(source needed for why do this) The net feedback parameter is reduced to the first order (Sherwood et al. 2020):</p>
+<p>(UNDER CONSTRUCTION: source needed for why do this+populate explanation on equation - Dessler and Zelinka 2015 explains it more intuitively, but require conversion from g to <span class="math notranslate nohighlight">\(\lambda\)</span>)</p>
+<p>The net feedback parameter is reduced to the first order (Sherwood et al. 2020):</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \lambda = \sum^{x}_{i}\lambda_{i} = \sum^{x} \frac{\partial R}{\partial x} \frac{\partial x}{\partial T_{s}} 
@@ -518,61 +523,75 @@ R = F_{in} - F_{out}
 </section>
 <section id="types-of-feedbacks">
 <h3>Types of Feedbacks<a class="headerlink" href="#types-of-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>Feedbacks are listed following <a class="reference external" href="https://doi.org/10.1029/2019RG000678">Sherwood et al. 2020</a> and <a class="reference external" href="https://doi.org/10.1175/JCLI3819.1">Bony et al. 2006</a>, which are limited to feedbacks that directly affect the top-of-the-atmosphere (TOA) radiation budget, and respond to surface temperature mostly through physical processes.</p>
-<p>There may be other feedbacks, but following</p>
-<p>Make plots for each feedback to see how changes in T affects the feedback.</p>
-<p>Types of kernels there are: sfc albedo, air temp (vert.varying) , surf temp, LW water vapor kernel, SW water vapor kernel</p>
-</section>
-<section id="planck-feedback">
-<h3>1. Planck Feedback<a class="headerlink" href="#planck-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>Planck feedback is the temperature dependence of longwave emission through Stefan-Boltzmann law, assuming <span class="math notranslate nohighlight">\(T_e\)</span> is 255K based on Earth’s average outgoing longwave radiation as 240 <span class="math notranslate nohighlight">\(Wm^{−2}\)</span> (e.g., Loeb et al., 2018).</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
- F = \sigma T^4 
-\end{equation*}\]</div>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
- -4\epsilon \sigma T^3 = - 3.3 Wm^{-2}
-\end{equation*}\]</div>
-<p>The more you heat, the more they go out.</p>
-<p>Extended Read: Planck feedback not necessarily accurately represented in climate models due to lack of stratospheric warming.
-https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003729</p>
+<p>Feedbacks below are listed following <a class="reference external" href="https://doi.org/10.1029/2019RG000678">Sherwood et al. 2020</a> and are limited to feedbacks that directly affect the top-of-the-atmosphere (TOA) radiation budget, and respond to surface temperature mostly through physical processes (Bony et al. 2006):</p>
+<ol class="arabic simple">
+<li><p>Planck Feedback</p></li>
+<li><p>Surface Albedo Feedback</p></li>
+<li><p>Water Vapor Feedback</p></li>
+<li><p>Lapse Rate Feedback</p></li>
+<li><p>Cloud Feedback</p></li>
+</ol>
+<p>The list above is not exhaustive. Feedbacks like the carbon cycle feedback are not included due to the carbon dioxide level being prescribed for the experimental set-up in Sherwood et al. (2020). Other feedbacks like the atmospheric ozone feedback and stratospheric feedback are not included as they are not normally quantified (Sherwood et al. 2020).</p>
+<p>Types of radiative kernels there are: sfc albedo, air temp (vert.varying) , surf temp, LW water vapor kernel, SW water vapor kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">270</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#K</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.67e-8</span> <span class="c1">#Wm−2K−4</span>
-<span class="n">flux</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">4</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">flux</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp (K)&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;TOA Flux ($Wm^{-2}$)&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">255</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">5.67e-8</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/912414c615e977bfe5132577461b16029cc2383b79bb1dfede8611bd0916de02.png" src="../../_images/912414c615e977bfe5132577461b16029cc2383b79bb1dfede8611bd0916de02.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.76065585
+</pre></div>
+</div>
 </div>
 </div>
 </section>
-<section id="surface-albedo-feedback">
-<h3>2. Surface Albedo Feedback<a class="headerlink" href="#surface-albedo-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<section id="planck-feedback-negative-under-warming">
+<h3>1. Planck “Feedback” (Negative under warming)<a class="headerlink" href="#planck-feedback-negative-under-warming" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>Planck feedback is the extra longwave (LW) emission to space from a vertically uniform warming of the surface and atmosphere, while holding all climate variable unchanged.</p>
+<p>The Planck feedback can be explained by the Stefan-Boltzmann law, which states that the total energy radiated per unit surface area per unit time is directly proportional to the fourth power of the black body’s temperature.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+ F = \sigma T^4 
+\end{equation*}\]</div>
+<p>, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the Stefan-Boltzmann constant (<span class="math notranslate nohighlight">\(5.67*10^{-8}\)</span> <span class="math notranslate nohighlight">\(  Wm^{-2}K^{-4}\)</span>). If everything else is held constant, we can calculate the rate of change of TOA flux due to the change in surface warming by taking the derivative of the Stefan-Boltzmann law. Taking the Earth’s average outgoing longwave radiation as 240 <span class="math notranslate nohighlight">\(Wm^{−2}\)</span> (e.g., Loeb et al., 2018) for the global effective emission temperature <span class="math notranslate nohighlight">\(T_{e}\)</span> as 255K, and substitute it as follow:\epsilon</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+ -4\sigma T_e^3 \approx - 3.76 Wm^{-2}K^{-1}
+\end{equation*}\]</div>
+<p>If we include the planetary emissivity <span class="math notranslate nohighlight">\(\epsilon\)</span>, we will get <span class="math notranslate nohighlight">\(\lambda_{Planck} \approx -3.3Wm^{-2}K^{-1}\)</span>, which is close to observations (Dessler, 2013) and global climate models (Caldwell et al. 2016).</p>
+<p>Simply put, the more you heat, the more LW radiation go out.</p>
+<p>Extended Read: Planck feedback not necessarily accurately represented in climate models due to lack of stratospheric warming. (Cronin and Dutta 2023)
+https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003729</p>
+<p>*Kernel related: structural uncertainty in Planck feedback arises from differences in spatial pattern of surface warming and climatological distribution fo clodus and water vapor that determines planetary emissivity - affects radiative temperature kernel (Sherwood et al 2020)</p>
 </section>
-<section id="water-vapor-feedback-lapse-rate-feedback">
-<h3>3. Water Vapor Feedback + Lapse Rate Feedback<a class="headerlink" href="#water-vapor-feedback-lapse-rate-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<section id="surface-albedo-feedback-positive-under-warming">
+<h3>2. Surface Albedo Feedback (Positive under warming)<a class="headerlink" href="#surface-albedo-feedback-positive-under-warming" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>:$  to bee populated</p>
+</section>
+<section id="water-vapor-feedback-positive-under-warming">
+<h3>3. Water Vapor Feedback: (Positive under warming)<a class="headerlink" href="#water-vapor-feedback-positive-under-warming" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p>Water vapor feedback and lapse rate feedback are commonly discussed together as they are both dependent on the how much water vapor is present in the atmosphere.</p>
+<p>Water vapor feedback is defined as the change in TOA net flux due to the increase in water vapor per degree of surface warming.</p>
 <p>Based on the Clausius-Clapeyron relationship, an increase in atmospheric temperature increases the capacity of air to hold water molecules. The more it warm, the more water the atmosphere can hold and more</p>
-<p>Water Vapor Feedback captures the change in outgoing LW and absorbed SW radiation at TOA due to the changes in the atmospheric water vapor concentration. Water droplets would absorb both longwave and shortwave radiation, and thus increase</p>
+<p>Water vapor interacts with both longwave and shortwave radiation.  captures the change in outgoing LW and absorbed SW radiation at TOA due to the changes in the atmospheric water vapor concentration. Water droplets would absorb both longwave and shortwave radiation, and thus increase</p>
 <p>[insert pic of capacity of jar increases as temperature increase]</p>
+</section>
+<section id="lapse-rate-feedback-negative-under-warming">
+<h3>4. Lapse Rate Feedback (Negative under warming)<a class="headerlink" href="#lapse-rate-feedback-negative-under-warming" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>LATERRRRRR</p>
 </section>
 <section id="cloud-feedback">
 <h3>4. Cloud Feedback<a class="headerlink" href="#cloud-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-</section>
-<section id="stratospheric-feedback">
-<h3>5. Stratospheric Feedback<a class="headerlink" href="#stratospheric-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 </section>
 </section>
 <section id="methods-to-calculate-raditaive-feedback">
 <h2>Methods to Calculate Raditaive Feedback<a class="headerlink" href="#methods-to-calculate-raditaive-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>Typically radiative feedback are calculated with global climate models. :O</p>
+<ul class="simple">
+<li><p>PRP method</p></li>
+</ul>
+<p>Workin on it &gt;:)</p>
 <div class="admonition alert alert-success">
 <p class="admonition-title">Success</p>
 <p>We got this done after all!</p>
@@ -594,26 +613,18 @@ https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003729</p>
 <section id="whats-next">
 <h3>What’s next?<a class="headerlink" href="#whats-next" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p>Let Jupyter book tie this to the next (sequential) piece of content that people could move on to down below and in the sidebar. However, if this page uniquely enables your reader to tackle other nonsequential concepts throughout this book, or even external content, link to it here!</p>
-</section>
-</section>
-<section id="resources-and-references">
-<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>Finally, be rigorous in your citations and references as necessary. Give credit where credit is due. Also, feel free to link to relevant external material, further reading, documentation, etc. Then you’re done! Give yourself a quick review, a high five, and send us a pull request. A few final notes:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Run</span> <span class="pre">All</span> <span class="pre">Cells...</span></code> to confirm that your notebook will cleanly run from start to finish</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Clear</span> <span class="pre">All</span> <span class="pre">Outputs...</span></code> before committing your notebook, our machines will do the heavy lifting</p></li>
-<li><p>Take credit! Provide author contact information if you’d like; if so, consider adding information here at the bottom of your notebook</p></li>
-<li><p>Give credit! Attribute appropriate authorship for referenced code, information, images, etc.</p></li>
-<li><p>Only include what you’re legally allowed: <strong>no copyright infringement or plagiarism</strong></p></li>
-</ul>
-<p>Thank you for your contribution!</p>
 <p>References:</p>
 <ul class="simple">
 <li><p>Bony et al. 2006 https://journals.ametsoc.org/view/journals/clim/19/15/jcli3819.1.xml</p></li>
-<li><p>Zenlinka et al. 2020</p></li>
+<li><p>Zelinka et al. 2020</p></li>
 <li><p>Sherwood et al. 2020</p></li>
+<li><p>Dessler and Zelinka 2015 (Encyclopedia of Atmospheric Sciences)</p></li>
+<li><p>Hartmann 2016 (Global Physical Climatology)</p></li>
+<li><p>Hansen et al. 1984</p></li>
+<li><p>Gregory et al. 2004</p></li>
 </ul>
 <p>More to come</p>
+</section>
 </section>
 </section>
 
@@ -689,11 +700,11 @@ https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003729</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-feedback-lambda">Radiative Feedback <span class="math notranslate nohighlight">\((\lambda)\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-is-a-feedback-and-why-does-it-matter">So, what is a feedback and why does it matter?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-feedbacks">Types of Feedbacks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planck-feedback">1. Planck Feedback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-albedo-feedback">2. Surface Albedo Feedback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-vapor-feedback-lapse-rate-feedback">3. Water Vapor Feedback + Lapse Rate Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planck-feedback-negative-under-warming">1. Planck “Feedback” (Negative under warming)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-albedo-feedback-positive-under-warming">2. Surface Albedo Feedback (Positive under warming)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-vapor-feedback-positive-under-warming">3. Water Vapor Feedback: (Positive under warming)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lapse-rate-feedback-negative-under-warming">4. Lapse Rate Feedback (Negative under warming)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback">4. Cloud Feedback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratospheric-feedback">5. Stratospheric Feedback</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-calculate-raditaive-feedback">Methods to Calculate Raditaive Feedback</a></li>
@@ -701,7 +712,6 @@ https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003729</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s next?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-references">Resources and references</a></li>
 </ul>
   </nav></div>
 
