@@ -10,7 +10,9 @@ This Project Pythia Cookbook explores the fundamental science and practice of ra
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+There are several well-established methods for quantifying radiative feedbacks from climate model output, and these have been widely used in the scientific literature. However, a comprehensive set of tutorials representing best practices for implementing these methods has been lacking, forcing new practioners to "reinvent the wheel" and piece together the implementation details from sometimes incomplete descriptions in the primary literature.
+
+This Cookbook aims to fill this gap by collecting a verbose set of tutorials that take the reader through some of the basic theory and implementation details, with plentiful example code that can be easily adapted to new datasets and new research applications. The examples will skew heavily toward the method of _radiative kernels_, with some comparison to other methods. 
 
 ## Authors
 
@@ -24,15 +26,19 @@ This Project Pythia Cookbook explores the fundamental science and practice of ra
 
 ## Structure
 
-(State one or more sections that will comprise the notebook. E.g., _This cookbook is broken up into two main sections - "Foundations" and "Example Workflows."_ Then, describe each section below.)
+This Cookbook is organized as follows:
 
-### Section 1 ( Replace with the title of this section, e.g. "Foundations" )
+### Foundations
 
-(Add content for this section, e.g., "The foundational content includes ... ")
+This section takes the reader through some of the basic ideas and provides an overview of the mathematical theory underlying the radiative kernel method.
 
-### Section 2 ( Replace with the title of this section, e.g. "Example workflows" )
+### Feedback Analysis
 
-(Add content for this section, e.g., "Example workflows include ... ")
+This section links the theory to the practice by demonstrating the detailed implementation of some radiative feedback calculations.
+
+### Simplifying Calculations
+
+This section gives more practical example code for carrying out feedback calculations on CMIP6 data, making use of some specialized software packages.
 
 ## Running the Notebooks
 
