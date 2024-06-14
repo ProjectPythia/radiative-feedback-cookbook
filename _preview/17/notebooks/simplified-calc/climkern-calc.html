@@ -1,0 +1,2333 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Feedbacks with ClimKern &#8212; Radiative Feedback Cookbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css?v=ba7ce088" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d0efeab3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-T52X8HNYE8');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-T52X8HNYE8');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/simplified-calc/climkern-calc';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Comparing Different Kernels" href="kernel-comparison.html" />
+    <link rel="prev" title="APRP" href="../feedback-analysis/aprp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="14 June 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div class="pst-scroll-pixel-helper"></div>
+    <header class="bd-header navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
+<div class="bd-header__inner bd-page-width">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+   
+
+<a class="navbar-brand logo" href="https://projectpythia.org">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pythia_logo-white-rtext.svg" class="logo__image only-light" alt="Radiative Feedback Cookbook - Home"/>
+    <script>document.write(`<img src="../../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark" alt="Radiative Feedback Cookbook - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">YouTube</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+        
+        
+        
+        <div class="bd-sidebar-primary bd-sidebar">
+          
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">YouTube</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Radiative Feedback Cookbook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../how-to-cite.html">How to Cite This Cookbook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../foundations/energy-balance-model.html">Energy Balance Model and Feedbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundations/theory-rad-feedback.html">Mathematical Theory of Radiative Feedbacks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Feedback Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../feedback-analysis/manual-calc.html">Manual Feedback Calculations Using Radiative Kernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feedback-analysis/aprp.html">APRP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Simplifying Calculations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Feedbacks with ClimKern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel-comparison.html">Comparing Different Kernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state-dependence.html">State Dependence</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+        </div>
+
+        
+        <main id="main-content" class="bd-main" role="main">
+          
+
+            <div class="bd-content">
+
+              <div class="bd-article-container">
+
+                
+                  
+                  
+<div id="searchbox"></div>
+                  <article class="bd-article">
+                    
+  <p><a class="reference internal" href="../../_images/ClimKern-logo.png"><img alt="ClimKern Python Package Logo" src="../../_images/ClimKern-logo.png" style="width: 250px;" /></a></img></p>
+<section class="tex2jax_ignore mathjax_ignore" id="feedbacks-with-climkern">
+<h1>Feedbacks with ClimKern<a class="headerlink" href="#feedbacks-with-climkern" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>While it is good to know how to manually calculate radiative feedbacks, it is also time-consuming to constantly recreate the code. Here, we will use a new Python package called ClimKern that offers functions to calculate radiative feedbacks from climate model or reanalysis output. The advantages of using ClimKern go beyond making it simpler—it standardizes the methods and assumptions that go into these sometimes complicated calculations. We will use CMIP6 output in this notebook.</p>
+<ol class="arabic simple">
+<li><p>This is a numbered list of the specific topics</p></li>
+<li><p>These should map approximately to your main sections of content</p></li>
+<li><p>Or each second-level, <code class="docutils literal notranslate"><span class="pre">##</span></code>, header in your notebook</p></li>
+<li><p>Keep the size and scope of your notebook in check</p></li>
+<li><p>And be sure to let the reader know up front the important concepts they’ll be leaving with</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/xarray/xarray-intro.html">Intro to Xarray</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/cartopy/cartopy.html">Intro to Cartopy</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/matplotlib/matplotlib-basics.html">Intro to Matplotlib</a></p></td>
+<td><p>Helpful</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://projectpythia.org/cmip6-cookbook/notebooks/foundations/intake-esm.html">Loading CMIP6 Data with Intake-ESM</a></p></td>
+<td><p>Helpful</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 20 minutes</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">climkern</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">intake</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">s3fs</span>
+<span class="kn">import</span> <span class="nn">fsspec</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">importlib.util</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-the-kernel">
+<h2>Download the kernel<a class="headerlink" href="#download-the-kernel" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>Normally, when ClimKern is installed, the user needs to download data on the command
+line from the Zenodo repository. However, we now have the data on Jetstream2, so
+we can download it from there and save it in our package repository.</p>
+<div class="admonition alert alert-info">
+<p class="admonition-title">Future update</p>
+<p>Future versions of ClimKern will be able to pull the kernel from Jetstream2 without
+storing locally.</p>
+</div>
+<p>First, set the URL and path to point to ClimKern. Also, specify which kernel you want.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://js2.jetstream-cloud.org:8001/&quot;</span> <span class="c1"># URL for jetstream access</span>
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pythia/ClimKern&quot;</span> <span class="c1"># Location of ClimKern</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;ERA5&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, read in the data from Jetstream2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in data</span>
+<span class="c1"># Set up access to jetstream2</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">filesystem</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">client_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">endpoint_url</span><span class="o">=</span><span class="n">URL</span><span class="p">))</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;s3://</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/kernels/&quot;</span><span class="o">+</span><span class="n">kernel</span><span class="o">+</span><span class="sa">f</span><span class="s2">&quot;/TOA*.nc&quot;</span>
+
+<span class="c1"># Grab the data</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+
+<span class="c1"># Open file and make it Xarray Dataset</span>
+<span class="n">kern</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># Save path for later</span>
+<span class="n">path_out</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">kernel</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save this data in ClimKern’s directory, we have to figure out where it is on the
+machine. After that, we will go ahead and save out the kernel as a netCDF in
+ClimKern’s local data directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the package location</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s2">&quot;climkern&quot;</span><span class="p">)</span>
+<span class="n">package_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
+
+<span class="c1"># print(f&quot;The package directory is: {package_dir}&quot;)</span>
+
+<span class="c1"># Define the path where you want to save the netCDF file within the package directory</span>
+<span class="n">netcdf_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_dir</span><span class="p">,</span><span class="s2">&quot;data/kernels&quot;</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">path_out</span><span class="p">)</span>
+
+<span class="c1"># Ensure the directory exists</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">netcdf_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Save the dataset as a netCDF file</span>
+<span class="n">kern</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">netcdf_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s just make sure we can retrieve the kernel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ck</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_kern</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 228MB
+Dimensions:   (plev: 37, lat: 73, lon: 144, time: 12)
+Coordinates:
+  * plev      (plev) float32 148B 1e+03 975.0 950.0 925.0 ... 5.0 3.0 2.0 1.0
+  * lat       (lat) float32 292B 90.0 87.5 85.0 82.5 ... -82.5 -85.0 -87.5 -90.0
+  * lon       (lon) float32 576B 0.0 2.5 5.0 7.5 ... 350.0 352.5 355.0 357.5
+  * time      (time) int64 96B 0 1 2 3 4 5 6 7 8 9 10 11
+Data variables:
+    lwclr_t   (time, plev, lat, lon) float64 37MB ...
+    lw_t      (time, plev, lat, lon) float64 37MB ...
+    lwclr_q   (time, plev, lat, lon) float64 37MB ...
+    lw_q      (time, plev, lat, lon) float64 37MB ...
+    swclr_q   (time, plev, lat, lon) float64 37MB ...
+    sw_q      (time, plev, lat, lon) float64 37MB ...
+    swclr_a   (time, lat, lon) float64 1MB ...
+    sw_a      (time, lat, lon) float64 1MB ...
+    lwclr_ts  (time, lat, lon) float64 1MB ...
+    lw_ts     (time, lat, lon) float64 1MB ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-410a41fb-8c8b-4561-abd8-5f34476f0d35' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-410a41fb-8c8b-4561-abd8-5f34476f0d35' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>plev</span>: 37</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>time</span>: 12</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-b7e36216-e371-4386-b5ea-3a87e73f645d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b7e36216-e371-4386-b5ea-3a87e73f645d' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>plev</span></div><div class='xr-var-dims'>(plev)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1e+03 975.0 950.0 ... 3.0 2.0 1.0</div><input id='attrs-262e3a9e-04fc-4d84-adaa-61e2f391b959' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-262e3a9e-04fc-4d84-adaa-61e2f391b959' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e3148eba-6356-4995-810d-2429c18aaff5' class='xr-var-data-in' type='checkbox'><label for='data-e3148eba-6356-4995-810d-2429c18aaff5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  975.,  950.,  925.,  900.,  875.,  850.,  825.,  800.,  775.,
+        750.,  700.,  650.,  600.,  550.,  500.,  450.,  400.,  350.,  300.,
+        250.,  225.,  200.,  175.,  150.,  125.,  100.,   70.,   50.,   30.,
+         20.,   10.,    7.,    5.,    3.,    2.,    1.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-95b0b6d4-d0a1-48dd-85da-46d981d6c45f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-95b0b6d4-d0a1-48dd-85da-46d981d6c45f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f8e07a30-66f6-4c90-9b2b-61761467ec33' class='xr-var-data-in' type='checkbox'><label for='data-f8e07a30-66f6-4c90-9b2b-61761467ec33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
+        65. ,  62.5,  60. ,  57.5,  55. ,  52.5,  50. ,  47.5,  45. ,  42.5,
+        40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,  20. ,  17.5,
+        15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,  -5. ,  -7.5,
+       -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5, -30. , -32.5,
+       -35. , -37.5, -40. , -42.5, -45. , -47.5, -50. , -52.5, -55. , -57.5,
+       -60. , -62.5, -65. , -67.5, -70. , -72.5, -75. , -77.5, -80. , -82.5,
+       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-427b2c33-a5f7-4c45-a5ea-86d1c4df3e6c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-427b2c33-a5f7-4c45-a5ea-86d1c4df3e6c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-97a0a71d-ac79-4294-ba87-16c5de20bae5' class='xr-var-data-in' type='checkbox'><label for='data-97a0a71d-ac79-4294-ba87-16c5de20bae5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+        25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
+        50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
+        75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
+       100. , 102.5, 105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5,
+       125. , 127.5, 130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5,
+       150. , 152.5, 155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5,
+       175. , 177.5, 180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5,
+       200. , 202.5, 205. , 207.5, 210. , 212.5, 215. , 217.5, 220. , 222.5,
+       225. , 227.5, 230. , 232.5, 235. , 237.5, 240. , 242.5, 245. , 247.5,
+       250. , 252.5, 255. , 257.5, 260. , 262.5, 265. , 267.5, 270. , 272.5,
+       275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
+       300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
+       325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 7 8 9 10 11</div><input id='attrs-656397ec-bde5-47c7-87bc-cebdea304d5e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-656397ec-bde5-47c7-87bc-cebdea304d5e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-39c89c83-b22f-4f0a-ba1f-2554a9487543' class='xr-var-data-in' type='checkbox'><label for='data-39c89c83-b22f-4f0a-ba1f-2554a9487543' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-429e611a-a7a0-48c8-aa95-2fcf5ecb92f8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-429e611a-a7a0-48c8-aa95-2fcf5ecb92f8' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_t</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-20c6a208-5cf0-4d1f-83a4-83c018b2a694' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-20c6a208-5cf0-4d1f-83a4-83c018b2a694' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2bfe109b-6a80-4dbe-885f-9edd1011a431' class='xr-var-data-in' type='checkbox'><label for='data-2bfe109b-6a80-4dbe-885f-9edd1011a431' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>air temperature kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_t</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-86d410ec-9970-400f-9a49-f9d9ef8897c3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-86d410ec-9970-400f-9a49-f9d9ef8897c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-384c289d-b0a1-47db-a13c-77f9cc0a0802' class='xr-var-data-in' type='checkbox'><label for='data-384c289d-b0a1-47db-a13c-77f9cc0a0802' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>air temperature kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_q</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-eb655b16-d4e1-4618-8bfc-fbe83aee672f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-eb655b16-d4e1-4618-8bfc-fbe83aee672f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-371df703-c281-44fc-b7a6-e3a437d04880' class='xr-var-data-in' type='checkbox'><label for='data-371df703-c281-44fc-b7a6-e3a437d04880' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor LW kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_q</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-51a96da2-e73e-49ac-bf91-754335d680a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51a96da2-e73e-49ac-bf91-754335d680a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ee19b338-317b-45b3-96ae-80e2d7341c00' class='xr-var-data-in' type='checkbox'><label for='data-ee19b338-317b-45b3-96ae-80e2d7341c00' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor LW kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swclr_q</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9c7a99f6-2bd2-4afd-b783-8a7f533f7f24' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9c7a99f6-2bd2-4afd-b783-8a7f533f7f24' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6bfd0c5-e041-4c0d-9cf4-c676158d99a9' class='xr-var-data-in' type='checkbox'><label for='data-f6bfd0c5-e041-4c0d-9cf4-c676158d99a9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor SW kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sw_q</span></div><div class='xr-var-dims'>(time, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-04ab44fb-2472-4c24-b4d6-a58a228e0c11' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-04ab44fb-2472-4c24-b4d6-a58a228e0c11' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-60590ea4-8838-45dc-bf66-366906916f7e' class='xr-var-data-in' type='checkbox'><label for='data-60590ea4-8838-45dc-bf66-366906916f7e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor SW kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swclr_a</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-54e1de17-eec3-419b-96e1-ee5e9ada8c55' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54e1de17-eec3-419b-96e1-ee5e9ada8c55' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a3d8a1e4-28ba-40b7-b43e-2c4e577392dc' class='xr-var-data-in' type='checkbox'><label for='data-a3d8a1e4-28ba-40b7-b43e-2c4e577392dc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce albedo kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/1%</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sw_a</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4502c0e2-01f2-4ab5-adc5-4db8aab9f784' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4502c0e2-01f2-4ab5-adc5-4db8aab9f784' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-365b544c-34fc-4950-a9ca-5b7f8031a325' class='xr-var-data-in' type='checkbox'><label for='data-365b544c-34fc-4950-a9ca-5b7f8031a325' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce albedo kenrel in all-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/1%</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_ts</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-610faec5-3afa-406c-813c-83bf6bda4ca1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-610faec5-3afa-406c-813c-83bf6bda4ca1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c44815f0-a8ab-4dda-bdf0-b5d67d954169' class='xr-var-data-in' type='checkbox'><label for='data-c44815f0-a8ab-4dda-bdf0-b5d67d954169' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce temperature kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K</dd><dt><span>band :</span></dt><dd>1.0</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_ts</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-897e61dd-b8c6-49c7-a90a-9040e7b23986' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-897e61dd-b8c6-49c7-a90a-9040e7b23986' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d49c8cdf-9d5a-4a8d-b684-dc4a1fa0ad94' class='xr-var-data-in' type='checkbox'><label for='data-d49c8cdf-9d5a-4a8d-b684-dc4a1fa0ad94' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce temperature kenrel in all-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>band :</span></dt><dd>1.0</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8d8ca8dd-b2e7-4dad-bf54-f15ff22cb334' class='xr-section-summary-in' type='checkbox'  ><label for='section-8d8ca8dd-b2e7-4dad-bf54-f15ff22cb334' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>plev</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-55ac95be-9925-4727-9af8-212c2f0119af' class='xr-index-data-in' type='checkbox'/><label for='index-55ac95be-9925-4727-9af8-212c2f0119af' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1000.0,  975.0,  950.0,  925.0,  900.0,  875.0,  850.0,  825.0,  800.0,
+        775.0,  750.0,  700.0,  650.0,  600.0,  550.0,  500.0,  450.0,  400.0,
+        350.0,  300.0,  250.0,  225.0,  200.0,  175.0,  150.0,  125.0,  100.0,
+         70.0,   50.0,   30.0,   20.0,   10.0,    7.0,    5.0,    3.0,    2.0,
+          1.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;plev&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-08b3ff5f-e2a8-49d7-b205-ff989df96328' class='xr-index-data-in' type='checkbox'/><label for='index-08b3ff5f-e2a8-49d7-b205-ff989df96328' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,  67.5,
+        65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,  45.0,  42.5,
+        40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,  20.0,  17.5,
+        15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,  -5.0,  -7.5,
+       -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0, -32.5,
+       -35.0, -37.5, -40.0, -42.5, -45.0, -47.5, -50.0, -52.5, -55.0, -57.5,
+       -60.0, -62.5, -65.0, -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5,
+       -85.0, -87.5, -90.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3e21523d-d3d1-42a5-8504-4d639152eb47' class='xr-index-data-in' type='checkbox'/><label for='index-3e21523d-d3d1-42a5-8504-4d639152eb47' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+       ...
+       335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1a2ca8a6-3cad-4663-9748-fb1c86db1697' class='xr-index-data-in' type='checkbox'/><label for='index-1a2ca8a6-3cad-4663-9748-fb1c86db1697' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], dtype=&#x27;int64&#x27;, name=&#x27;time&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ed5a4476-0820-4edf-b2e3-be849d2db049' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ed5a4476-0820-4edf-b2e3-be849d2db049' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+</section>
+<section id="prepare-the-cmip6-data">
+<h2>Prepare the CMIP6 Data<a class="headerlink" href="#prepare-the-cmip6-data" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>To start, we will need some CMIP6 data to calculate feedbacks. We will use the
+preindustrial control and 4×CO<span class="math notranslate nohighlight">\(_2\)</span> experiments from just one model (CESM2).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a list of variables and experiments we need</span>
+<span class="n">var_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rsds&quot;</span><span class="p">,</span><span class="s2">&quot;rsus&quot;</span><span class="p">,</span><span class="s2">&quot;ta&quot;</span><span class="p">,</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span><span class="s2">&quot;ps&quot;</span><span class="p">,</span><span class="s2">&quot;hus&quot;</span><span class="p">]</span>
+<span class="n">exp_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;piControl&quot;</span><span class="p">,</span><span class="s2">&quot;abrupt-4xCO2&quot;</span><span class="p">]</span>
+
+<span class="c1"># Specify data location, open it</span>
+<span class="n">cat_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/cmip6/pangeo-cmip6.json&quot;</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="n">cat_url</span><span class="p">)</span>
+
+<span class="c1"># Create a catalog of matching simulations</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="n">exp_list</span><span class="p">,</span><span class="n">source_id</span><span class="o">=</span><span class="s2">&quot;CESM2&quot;</span><span class="p">,</span><span class="n">variable_id</span><span class="o">=</span><span class="n">var_list</span><span class="p">,</span>
+                <span class="n">table_id</span><span class="o">=</span><span class="s2">&quot;Amon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Convert to a dictionary of Xarray Datasets</span>
+<span class="n">ds_dict</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="n">zarr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;consolidated&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--&gt; The keys in the returned dictionary of datasets are constructed as follows:
+	&#39;activity_id.institution_id.source_id.experiment_id.table_id.grid_label&#39;
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
+    <div>
+      <progress value='2' class='' max='2' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [2/2 00:04&lt;00:00]
+    </div>
+    </div></div>
+</div>
+<p>The data, especially the preindustrial control simulation that will serve as our
+control climate, is huge. We are going to only use the last 50 years of the control
+and last 30 years of the abrupt 4×CO<span class="math notranslate nohighlight">\(_2\)</span> simulation. There are a few extra coordinates
+and/or dimensions we don’t need, hence the <code class="docutils literal notranslate"><span class="pre">squeeze()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our control simulation</span>
+<span class="n">ctrl</span> <span class="o">=</span> <span class="n">ds_dict</span><span class="p">[</span><span class="s2">&quot;CMIP.NCAR.CESM2.piControl.Amon.gn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">600</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;plev&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># The increase CO2 aka &quot;perturbed&quot; simulation</span>
+<span class="n">pert</span> <span class="o">=</span> <span class="n">ds_dict</span><span class="p">[</span><span class="s2">&quot;CMIP.NCAR.CESM2.abrupt-4xCO2.Amon.gn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">360</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;plev&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save a little diskspace because ClimKern still isn’t dask compatible yet,
+let’s make our control climatology ahead of time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;month&quot;</span><span class="p">:</span><span class="s2">&quot;time&quot;</span><span class="p">})</span>
+<span class="n">pert</span> <span class="o">=</span> <span class="n">pert</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pert</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;month&quot;</span><span class="p">:</span><span class="s2">&quot;time&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="feedback-calculations">
+<h2>Feedback calculations<a class="headerlink" href="#feedback-calculations" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<section id="surface-albedo-feedback">
+<h3>Surface albedo feedback<a class="headerlink" href="#surface-albedo-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>Perhaps the simplest of the radiative feedbacks to calculate is the surface albedo
+feedback because it requires only two variables and is a 3-dimensional field (no height
+coordinate). The variables we will use are as follows:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>rsus</i></p></td>
+<td><p>The upwelling shortwave radiation at the surface</p></td>
+<td><p>W/m<span class="math notranslate nohighlight">\(^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><i>rsds</i></p></td>
+<td><p>The downwelling shortwave radiation at the surface</p></td>
+<td><p>W/m<span class="math notranslate nohighlight">\(^2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <a class="reference external" href="https://tyfolino.github.io/climkern/climkern.html#climkern.calc_alb_feedback"><code class="docutils literal notranslate"><span class="pre">calc_alb_feedback()</span></code></a> function is straightforward. Be sure to include our kernel name
+in the arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alb</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">calc_alb_feedback</span><span class="p">(</span>
+    <span class="n">ctrl</span><span class="o">.</span><span class="n">rsus</span><span class="p">,</span><span class="n">ctrl</span><span class="o">.</span><span class="n">rsds</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">rsus</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">rsds</span><span class="p">,</span><span class="n">kern</span><span class="o">=</span><span class="s2">&quot;ERA5&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what the resulting Dataarray looks like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (time: 12, lat: 192, lon: 288)&gt; Size: 5MB
+dask.array&lt;mul, shape=(12, 192, 288), dtype=float64, chunksize=(1, 192, 288), chunktype=numpy.ndarray&gt;
+Coordinates:
+  * lat             (lat) float64 2kB -90.0 -89.06 -88.12 ... 88.12 89.06 90.0
+  * lon             (lon) float64 2kB 0.0 1.25 2.5 3.75 ... 356.2 357.5 358.8
+    member_id       &lt;U8 32B &#x27;r1i1p1f1&#x27;
+    dcpp_init_year  float64 8B nan
+  * time            (time) int64 96B 1 2 3 4 5 6 7 8 9 10 11 12</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 12</li><li><span class='xr-has-index'>lat</span>: 192</li><li><span class='xr-has-index'>lon</span>: 288</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-81ef0a48-77f0-405d-bb36-bacdfa6ee53a' class='xr-array-in' type='checkbox' checked><label for='section-81ef0a48-77f0-405d-bb36-bacdfa6ee53a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 192, 288), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.06 MiB </td>
+                        <td> 432.00 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (12, 192, 288) </td>
+                        <td> (1, 192, 288) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 12 chunks in 234 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="199" height="149" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="29" y2="19" style="stroke-width:2" />
+  <line x1="10" y1="80" x2="29" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="80" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="81" />
+  <line x1="13" y1="3" x2="13" y2="83" />
+  <line x1="14" y1="4" x2="14" y2="84" />
+  <line x1="16" y1="6" x2="16" y2="86" />
+  <line x1="18" y1="8" x2="18" y2="88" />
+  <line x1="19" y1="9" x2="19" y2="89" />
+  <line x1="21" y1="11" x2="21" y2="91" />
+  <line x1="23" y1="13" x2="23" y2="93" />
+  <line x1="24" y1="14" x2="24" y2="94" />
+  <line x1="26" y1="16" x2="26" y2="96" />
+  <line x1="28" y1="18" x2="28" y2="98" />
+  <line x1="29" y1="19" x2="29" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 29.637469671486315,19.637469671486315 29.637469671486315,99.63746967148631 10.0,80.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="13" y1="3" x2="133" y2="3" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="21" y1="11" x2="141" y2="11" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" />
+  <line x1="26" y1="16" x2="146" y2="16" />
+  <line x1="28" y1="18" x2="148" y2="18" />
+  <line x1="29" y1="19" x2="149" y2="19" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="29" y2="19" style="stroke-width:2" />
+  <line x1="130" y1="0" x2="149" y2="19" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 149.63746967148631,19.637469671486315 29.637469671486315,19.637469671486315" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="29" y1="19" x2="149" y2="19" style="stroke-width:2" />
+  <line x1="29" y1="99" x2="149" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="29" y1="19" x2="29" y2="99" style="stroke-width:2" />
+  <line x1="149" y1="19" x2="149" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="29.637469671486315,19.637469671486315 149.63746967148631,19.637469671486315 149.63746967148631,99.63746967148631 29.637469671486315,99.63746967148631" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="89.637470" y="119.637470" font-size="1.0rem" font-weight="100" text-anchor="middle" >288</text>
+  <text x="169.637470" y="59.637470" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,169.637470,59.637470)">192</text>
+  <text x="9.818735" y="109.818735" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,9.818735,109.818735)">12</text>
+</svg>
+        </td>
+    </tr>
+</table></div></div></li><li class='xr-section-item'><input id='section-28f7d512-063e-4aec-8f5f-699102c5897e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-28f7d512-063e-4aec-8f5f-699102c5897e' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-90.0 -89.06 -88.12 ... 89.06 90.0</div><input id='attrs-f27c92e9-47e3-4c05-8389-0eb5827fa30c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f27c92e9-47e3-4c05-8389-0eb5827fa30c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d31bf7e-021e-4580-9420-79a4de23853a' class='xr-var-data-in' type='checkbox'><label for='data-8d31bf7e-021e-4580-9420-79a4de23853a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>title :</span></dt><dd>Latitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>90.0</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd></dl></div><div class='xr-var-data'><pre>array([-90.      , -89.057592, -88.115183, -87.172775, -86.230366, -85.287958,
+       -84.34555 , -83.403141, -82.460733, -81.518325, -80.575916, -79.633508,
+       -78.691099, -77.748691, -76.806283, -75.863874, -74.921466, -73.979058,
+       -73.036649, -72.094241, -71.151832, -70.209424, -69.267016, -68.324607,
+       -67.382199, -66.439791, -65.497382, -64.554974, -63.612565, -62.670157,
+       -61.727749, -60.78534 , -59.842932, -58.900524, -57.958115, -57.015707,
+       -56.073298, -55.13089 , -54.188482, -53.246073, -52.303665, -51.361257,
+       -50.418848, -49.47644 , -48.534031, -47.591623, -46.649215, -45.706806,
+       -44.764398, -43.82199 , -42.879581, -41.937173, -40.994764, -40.052356,
+       -39.109948, -38.167539, -37.225131, -36.282723, -35.340314, -34.397906,
+       -33.455497, -32.513089, -31.570681, -30.628272, -29.685864, -28.743455,
+       -27.801047, -26.858639, -25.91623 , -24.973822, -24.031414, -23.089005,
+       -22.146597, -21.204188, -20.26178 , -19.319372, -18.376963, -17.434555,
+       -16.492147, -15.549738, -14.60733 , -13.664921, -12.722513, -11.780105,
+       -10.837696,  -9.895288,  -8.95288 ,  -8.010471,  -7.068063,  -6.125654,
+        -5.183246,  -4.240838,  -3.298429,  -2.356021,  -1.413613,  -0.471204,
+         0.471204,   1.413613,   2.356021,   3.298429,   4.240838,   5.183246,
+         6.125654,   7.068063,   8.010471,   8.95288 ,   9.895288,  10.837696,
+        11.780105,  12.722513,  13.664921,  14.60733 ,  15.549738,  16.492147,
+        17.434555,  18.376963,  19.319372,  20.26178 ,  21.204188,  22.146597,
+        23.089005,  24.031414,  24.973822,  25.91623 ,  26.858639,  27.801047,
+        28.743455,  29.685864,  30.628272,  31.570681,  32.513089,  33.455497,
+        34.397906,  35.340314,  36.282723,  37.225131,  38.167539,  39.109948,
+        40.052356,  40.994764,  41.937173,  42.879581,  43.82199 ,  44.764398,
+        45.706806,  46.649215,  47.591623,  48.534031,  49.47644 ,  50.418848,
+        51.361257,  52.303665,  53.246073,  54.188482,  55.13089 ,  56.073298,
+        57.015707,  57.958115,  58.900524,  59.842932,  60.78534 ,  61.727749,
+        62.670157,  63.612565,  64.554974,  65.497382,  66.439791,  67.382199,
+        68.324607,  69.267016,  70.209424,  71.151832,  72.094241,  73.036649,
+        73.979058,  74.921466,  75.863874,  76.806283,  77.748691,  78.691099,
+        79.633508,  80.575916,  81.518325,  82.460733,  83.403141,  84.34555 ,
+        85.287958,  86.230366,  87.172775,  88.115183,  89.057592,  90.      ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.25 2.5 ... 356.2 357.5 358.8</div><input id='attrs-392ab6e6-7b58-47cd-85a2-974750399b22' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-392ab6e6-7b58-47cd-85a2-974750399b22' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2814aaed-b4ec-4866-a5e1-b9a5e17c6dcf' class='xr-var-data-in' type='checkbox'><label for='data-2814aaed-b4ec-4866-a5e1-b9a5e17c6dcf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>title :</span></dt><dd>Longitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>360.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   1.25,   2.5 , ..., 356.25, 357.5 , 358.75])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>member_id</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>&lt;U8</div><div class='xr-var-preview xr-preview'>&#x27;r1i1p1f1&#x27;</div><input id='attrs-35c47248-f01b-4a71-8b70-0e772f239bcb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-35c47248-f01b-4a71-8b70-0e772f239bcb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-07cca6e9-f172-4b2a-98f2-134d7f65671d' class='xr-var-data-in' type='checkbox'><label for='data-07cca6e9-f172-4b2a-98f2-134d7f65671d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(&#x27;r1i1p1f1&#x27;, dtype=&#x27;&lt;U8&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dcpp_init_year</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan</div><input id='attrs-c149d6e4-5e21-4ef5-a355-62f959fdeea5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c149d6e4-5e21-4ef5-a355-62f959fdeea5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61eef35e-eb62-490d-a404-7e5062d71396' class='xr-var-data-in' type='checkbox'><label for='data-61eef35e-eb62-490d-a404-7e5062d71396' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(nan)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 7 8 9 10 11 12</div><input id='attrs-2bcd1752-5bfd-413c-b858-4dac21a4da6a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2bcd1752-5bfd-413c-b858-4dac21a4da6a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-904c4c21-550f-4b72-808f-78617af92105' class='xr-var-data-in' type='checkbox'><label for='data-904c4c21-550f-4b72-808f-78617af92105' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c6336d29-71c5-4dba-a8cd-208ecb4ac03f' class='xr-section-summary-in' type='checkbox'  ><label for='section-c6336d29-71c5-4dba-a8cd-208ecb4ac03f' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-26aad6e8-c91c-4e3a-bb1b-5ce5a898183b' class='xr-index-data-in' type='checkbox'/><label for='index-26aad6e8-c91c-4e3a-bb1b-5ce5a898183b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([             -90.0, -89.05759162303664,  -88.1151832460733,
+       -87.17277486910994,  -86.2303664921466, -85.28795811518324,
+        -84.3455497382199, -83.40314136125654, -82.46073298429319,
+       -81.51832460732984,
+       ...
+        81.51832460732984,   82.4607329842932,  83.40314136125653,
+        84.34554973821989,  85.28795811518324,   86.2303664921466,
+        87.17277486910996,  88.11518324607329,  89.05759162303664,
+                     90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=192))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4be374c6-0991-4959-89e3-0da4b4239da2' class='xr-index-data-in' type='checkbox'/><label for='index-4be374c6-0991-4959-89e3-0da4b4239da2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0.0,   1.25,    2.5,   3.75,    5.0,   6.25,    7.5,   8.75,   10.0,
+        11.25,
+       ...
+        347.5, 348.75,  350.0, 351.25,  352.5, 353.75,  355.0, 356.25,  357.5,
+       358.75],
+      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=288))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3c9b8a82-b543-4fba-a232-bf2840d7f1ac' class='xr-index-data-in' type='checkbox'/><label for='index-3c9b8a82-b543-4fba-a232-bf2840d7f1ac' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], dtype=&#x27;int64&#x27;, name=&#x27;time&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4c1046fe-8710-452a-89d0-c38467055ea5' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4c1046fe-8710-452a-89d0-c38467055ea5' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>A few notes:</p>
+<ul class="simple">
+<li><p>The output from ClimKern is always in units of W/m<span class="math notranslate nohighlight">\(^2\)</span>. Therefore, this should be interpretted as the radiative perturbation from the surface albedo feedback at the top-of-atmosphere.</p></li>
+<li><p>The output is 3-dimensional with coordinates of lat, lon, and time.</p></li>
+</ul>
+<p>Finally, let’s plot the time average surface albedo feedback on a map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a few variables</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+
+<span class="c1"># Create figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot surface albedo feedback &amp; add coastlines</span>
+<span class="n">alb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;W/m$^2$&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Time-averaged Surface Albedo Feedback&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/110m_physical/ne_110m_coastline.zip
+</pre></div>
+</div>
+<img alt="../../_images/55ae980841622d34d344679f565cb2953d7a299c4b30b066492db05486f148f3.png" src="../../_images/55ae980841622d34d344679f565cb2953d7a299c4b30b066492db05486f148f3.png" />
+</div>
+</div>
+<p>As one might expect, the greatest radiative change at the TOA from the surface albedo feedback is near the poles where there is melting sea ice and snow.</p>
+</section>
+<section id="planck-and-lapse-rate-feedbacks">
+<h3>Planck and lapse rate feedbacks<a class="headerlink" href="#planck-and-lapse-rate-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>As a reminder, the total tropospheric temperature feedback is often decomposed into a distict Planck and lapse rate feedback. ClimKern has a single function that produces both feedbacks simultaneously called <a class="reference external" href="https://tyfolino.github.io/climkern/climkern.html#climkern.calc_T_feedbacks"><code class="docutils literal notranslate"><span class="pre">calc_T_feedbacks()</span></code></a>. The variables we need this time are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>ta</i></p></td>
+<td><p>The 4-dimensional air temperature</p></td>
+<td><p>K</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><i>ts</i></p></td>
+<td><p>The 3-dimensional surface skin temperature</p></td>
+<td><p>K</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><i>ps</i></p></td>
+<td><p>The 3-dimensional surface pressure</p></td>
+<td><p>Pa, mb, or hPa</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><i>trop_p</i></p></td>
+<td><p>The 3-dimensional tropopause height</p></td>
+<td><p>Pa, mb, or hPa</p></td>
+<td><p><i>Optional</i></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>CMIP6 output rarely contains the tropopause height, so we will create a default tropopause that decreases linearly with the cosine of latitude from 100 hPa at the Equator to 300 hPa at the poles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use ClimKern&#39;s &quot;hidden&quot; make_tropo function</span>
+<span class="n">pert</span><span class="p">[</span><span class="s2">&quot;trop_p&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">make_tropo</span><span class="p">(</span><span class="n">pert</span><span class="o">.</span><span class="n">ps</span><span class="p">)</span>
+<span class="n">pert</span><span class="o">.</span><span class="n">trop_p</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Pa&quot;</span>
+
+<span class="n">lr</span><span class="p">,</span><span class="n">pl</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">calc_T_feedbacks</span><span class="p">(</span>
+    <span class="n">ctrl</span><span class="o">.</span><span class="n">ta</span><span class="p">,</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ts</span><span class="p">,</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ps</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">ta</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">ts</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">ps</span><span class="p">,</span><span class="n">pert_trop</span><span class="o">=</span><span class="n">pert</span><span class="o">.</span><span class="n">trop_p</span><span class="p">,</span><span class="n">kern</span><span class="o">=</span><span class="s2">&quot;ERA5&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Simple. Let’s see what it looks like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a few variables</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+
+<span class="c1"># Create figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot surface albedo feedback &amp; add coastlines</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;W/m$^2$&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Time-averaged Lapse Rate Feedback&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/284c158d0f6208d14b7e8da3aa975dc418e878e2d91512ea015495282540ab5f.png" src="../../_images/284c158d0f6208d14b7e8da3aa975dc418e878e2d91512ea015495282540ab5f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a few variables</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+
+<span class="c1"># Create figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot surface albedo feedback &amp; add coastlines</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues_r&quot;</span><span class="p">,</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;W/m$^2$&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Time-averaged Planck Feedback&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b256ef30be8e8c63b7883d3c7d943975089d4f19692c4ec4b2b99fd5435d5947.png" src="../../_images/b256ef30be8e8c63b7883d3c7d943975089d4f19692c4ec4b2b99fd5435d5947.png" />
+</div>
+</div>
+<p>These results seem reasonable. The Planck feedback is often the feedback with the largest magnitude and scales nonlinearly with temperature change. The lapse rate feedback changes sign depending on the vertical structure of the atmosphere is usually positive (warming) at the poles and negative (cooling) in the tropics.</p>
+</section>
+<section id="water-vapor-feedbacks">
+<h3>Water vapor feedbacks<a class="headerlink" href="#water-vapor-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>Here we use ClimKern to calculate the longwave and shortwave water vapor feedabcks. ClimKern has a single function that produces both called <a class="reference external" href="https://tyfolino.github.io/climkern/climkern.html#climkern.calc_q_feedbacks"><code class="docutils literal notranslate"><span class="pre">calc_q_feedbacks()</span></code></a>. This function requires both the specific humidity and air temperature because ClimKern has to normalize the water vapor kernels to make them compatible with the specific humidity.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>hus</i></p></td>
+<td><p>The 4-dimensional specific humidity</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{g}{g}\)</span> or <span class="math notranslate nohighlight">\(\frac{g}{kg}\)</span></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><i>ta</i></p></td>
+<td><p>The 4-dimensional air temperature</p></td>
+<td><p>K</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><i>ps</i></p></td>
+<td><p>The 3-dimensional surface pressure</p></td>
+<td><p>Pa, mb, or hPa</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><i>trop_p</i></p></td>
+<td><p>The 3-dimensional tropopause height</p></td>
+<td><p>Pa, mb, or hPa</p></td>
+<td><p><i>Optional</i></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is one more argument we can provide called <code class="docutils literal notranslate"><span class="pre">method</span></code>, which is simply a number 1-4. This corresponds to whether to use a fractional approximation for logarithms, use the logarithms explicitly, or use the linear change in water vapor concentration. See <a class="reference external" href="https://tyfolino.github.io/climkern/climkern.html#climkern.calc_q_feedbacks">here</a> for complete descriptions. We will use method 3 which is to use the natural logarithm of specific humidity without doing a fractional approximation.</p>
+<p>We will use the same tropopause height as before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use ClimKern&#39;s water vapor feedback function</span>
+<span class="n">qlw</span><span class="p">,</span><span class="n">qsw</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">calc_q_feedbacks</span><span class="p">(</span>
+    <span class="n">ctrl</span><span class="o">.</span><span class="n">hus</span><span class="p">,</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ta</span><span class="p">,</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ps</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">hus</span><span class="p">,</span><span class="n">pert</span><span class="o">.</span><span class="n">ps</span><span class="p">,</span><span class="n">pert_trop</span><span class="o">=</span><span class="n">pert</span><span class="o">.</span><span class="n">trop_p</span><span class="p">,</span><span class="n">kern</span><span class="o">=</span><span class="s2">&quot;ERA5&quot;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look, starting with the longwave.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a few variables</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+
+<span class="c1"># Create figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the longwave water vapor feedback and add coastlines</span>
+<span class="n">qlw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;W/m$^2$&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Time-averaged LW Water Vapor Feedback&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/757b0823c38b67fe5bfcdc20e9204bdddf962bc8ab0588f66796d7059da63adb.png" src="../../_images/757b0823c38b67fe5bfcdc20e9204bdddf962bc8ab0588f66796d7059da63adb.png" />
+</div>
+</div>
+<p>And now the shortwave…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a few variables</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+
+<span class="c1"># Create figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">),</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the longwave water vapor feedback and add coastlines</span>
+<span class="n">qsw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                      <span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;W/m$^2$&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Time-averaged SW Water Vapor Feedback&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ffe650dc615470dcaa076eb8c252bc4f794569a96c3c52c7f11cfb1f05b4036e.png" src="../../_images/ffe650dc615470dcaa076eb8c252bc4f794569a96c3c52c7f11cfb1f05b4036e.png" />
+</div>
+</div>
+</section>
+<section id="cloud-feedbacks">
+<h3>Cloud feedbacks<a class="headerlink" href="#cloud-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+</section>
+</section>
+<section id="last-section">
+<h2>Last Section<a class="headerlink" href="#last-section" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>If you’re comfortable, and as we briefly used for our embedded logo up top, you can embed raw html into Jupyter Markdown cells (edit to see):</p>
+<div class="admonition alert alert-info">
+<p class="admonition-title">Info</p>
+<p>Your relevant information here!</p>
+</div>
+<p>Feel free to copy this around and edit or play around with yourself. Some other <code class="docutils literal notranslate"><span class="pre">admonitions</span></code> you can put in:</p>
+<div class="admonition alert alert-success">
+<p class="admonition-title">Success</p>
+<p>We got this done after all!</p>
+</div>
+<div class="admonition alert alert-warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful!</p>
+</div>
+<div class="admonition alert alert-danger">
+<p class="admonition-title">Danger</p>
+<p>Scary stuff be here.</p>
+</div>
+<p>We also suggest checking out Jupyter Book’s <a class="reference external" href="https://jupyterbook.org/content/metadata.html#jupyter-cell-tags">brief demonstration</a> on adding cell tags to your cells in Jupyter Notebook, Lab, or manually. Using these cell tags can allow you to <a class="reference external" href="https://jupyterbook.org/interactive/hiding.html">customize</a> how your code content is displayed and even <a class="reference external" href="https://jupyterbook.org/content/execute.html#dealing-with-code-that-raises-errors">demonstrate errors</a> without altogether crashing our loyal army of machines!</p>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>Add one final <code class="docutils literal notranslate"><span class="pre">---</span></code> marking the end of your body of content, and then conclude with a brief single paragraph summarizing at a high level the key pieces that were learned and how they tied to your objectives. Look to reiterate what the most important takeaways were.</p>
+<section id="whats-next">
+<h3>What’s next?<a class="headerlink" href="#whats-next" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<p>Let Jupyter book tie this to the next (sequential) piece of content that people could move on to down below and in the sidebar. However, if this page uniquely enables your reader to tackle other nonsequential concepts throughout this book, or even external content, link to it here!</p>
+</section>
+</section>
+<section id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>Finally, be rigorous in your citations and references as necessary. Give credit where credit is due. Also, feel free to link to relevant external material, further reading, documentation, etc. Then you’re done! Give yourself a quick review, a high five, and send us a pull request. A few final notes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Run</span> <span class="pre">All</span> <span class="pre">Cells...</span></code> to confirm that your notebook will cleanly run from start to finish</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Clear</span> <span class="pre">All</span> <span class="pre">Outputs...</span></code> before committing your notebook, our machines will do the heavy lifting</p></li>
+<li><p>Take credit! Provide author contact information if you’d like; if so, consider adding information here at the bottom of your notebook</p></li>
+<li><p>Give credit! Attribute appropriate authorship for referenced code, information, images, etc.</p></li>
+<li><p>Only include what you’re legally allowed: <strong>no copyright infringement or plagiarism</strong></p></li>
+</ul>
+<p>Thank you for your contribution!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/simplified-calc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                  </article>
+
+                
+                
+
+                
+                
+                  <footer class="prev-next-footer">
+                    
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../feedback-analysis/aprp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">APRP</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="kernel-comparison.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Comparing Different Kernels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                  </footer>
+                
+              </div>
+
+              
+              
+                
+                  <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-kernel">Download the kernel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-cmip6-data">Prepare the CMIP6 Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-calculations">Feedback calculations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-albedo-feedback">Surface albedo feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planck-and-lapse-rate-feedbacks">Planck and lapse rate feedbacks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-vapor-feedbacks">Water vapor feedbacks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedbacks">Cloud feedbacks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#last-section">Last Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-references">Resources and references</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+                
+              
+
+
+                
+                <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://binder.projectpythia.org/v2/gh/ProjectPythia/radiative-feedback-cookbook/main?urlpath=lab/tree/notebooks/simplified-calc/climkern-calc.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/radiative-feedback-cookbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/radiative-feedback-cookbook/edit/main/notebooks/simplified-calc/climkern-calc.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/radiative-feedback-cookbook/issues/new?title=Issue%20on%20page%20%2Fnotebooks/simplified-calc/climkern-calc.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/simplified-calc/climkern-calc.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+            </div>
+
+            <footer class="bd-footer-content">
+              
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the <a href="https://projectpythia.org/">Project Pythia</a> Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on 14 June 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+            </footer>
+
+        </main>
+    </div>
+  </div>
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+     
+  
+  
+  
+  
+    <div class="footer-items__start">
+      <div class="container-fluid m-0 p-0">
+      
+        <div class="footer-item">
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div></div>
+      
+        <div class="footer-item">  <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2024.
+        
+          By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
+        
+          Last updated on 14 June 2024.
+        </p>
+      </div>
+    </div>
+  </div></div>
+      
+        <div class="footer-item"><div class="container-fluid footer-extra">
+  <div class="container">
+    <center>
+      Theme by <a href="https://projectpythia.org">Project Pythia</a>. All code
+      in Pythia Cookbooks is licensed under
+      <a href="https://opensource.org/license/apache-2-0">Apache 2.0</a>. All
+      other non-code content is licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/">
+        Creative Commons BY 4.0 (CC BY 4.0)</a
+      >.
+    </center>
+    <br /><br />
+    <div class="row">
+      <p class="m-0">
+        <img
+          src="../../_static/footer-logo-nsf.png"
+          style="float: left; width: 60px; height: 60px; margin-right: 1rem"
+        />
+        This material is based upon work supported by the National Science
+        Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings,
+        and conclusions or recommendations expressed in this material are those
+        of the author(s) and do not necessarily reflect the views of the
+        National Science Foundation.
+      </p>
+    </div>
+  </div>
+</div></div>
+      
+      </div>
+    </div>
+  
+
+  </footer>
+  </body>
+</html>
