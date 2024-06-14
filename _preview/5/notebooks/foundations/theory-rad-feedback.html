@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Theory of Radiative Feedbacks &#8212; Radiative Feedback Cookbook</title>
+    <title>Mathematical Theory of Radiative Feedbacks &#8212; Radiative Feedback Cookbook</title>
   
   
   
@@ -81,7 +81,7 @@
     <link rel="prev" title="Energy Balance Model and Feedbacks" href="energy-balance-model.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="13 June 2024"/>
+    <meta name="docbuild:last-update" content="14 June 2024"/>
   </head>
   
   
@@ -371,7 +371,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="energy-balance-model.html">Energy Balance Model and Feedbacks</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Theory of Radiative Feedbacks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mathematical Theory of Radiative Feedbacks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Feedback Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -380,7 +380,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Simplifying Calculations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../simplified-calc/climkern-calc.html">Calculations with ClimKern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simplified-calc/climkern-calc.html">Feedbacks with ClimKern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simplified-calc/kernel-comparison.html">Comparing Different Kernels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simplified-calc/state-dependence.html">State Dependence</a></li>
 </ul>
@@ -412,32 +412,16 @@
 <div id="searchbox"></div>
                   <article class="bd-article">
                     
-  <p>Let’s start here! If you can directly link to an image relevant to your notebook, such as <a class="reference external" href="https://github.com/numpy/numpy/blob/main/doc/source/_static/numpylogo.svg">canonical logos</a>, do so here at the top of your notebook. You can do this with Markdown syntax,</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">![&lt;image</span> <span class="pre">title&gt;](http://link.com/to/image.png</span> <span class="pre">&quot;image</span> <span class="pre">alt</span> <span class="pre">text&quot;)</span></code></p>
-</div></blockquote>
-<p>or edit this cell to see raw HTML <code class="docutils literal notranslate"><span class="pre">img</span></code> demonstration. This is preferred if you need to shrink your embedded image. <strong>Either way be sure to include <code class="docutils literal notranslate"><span class="pre">alt</span></code> text for any embedded images to make your content more accessible.</strong></p>
-<p><a class="reference internal" href="notebooks/foundations/images/ProjectPythia_Logo_Final-01-Blue.svg"><img alt="Project Pythia Logo" src="notebooks/foundations/images/ProjectPythia_Logo_Final-01-Blue.svg" width="250" /></a></img></p>
-<section class="tex2jax_ignore mathjax_ignore" id="theory-of-radiative-feedbacks">
-<h1>Theory of Radiative Feedbacks<a class="headerlink" href="#theory-of-radiative-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
-<p>Next, title your notebook appropriately with a top-level Markdown header, <code class="docutils literal notranslate"><span class="pre">#</span></code>. Do not use this level header anywhere else in the notebook. Our book build process will use this title in the navbar, table of contents, etc. Keep it short, keep it descriptive. Follow this with a <code class="docutils literal notranslate"><span class="pre">---</span></code> cell to visually distinguish the transition to the prerequisites section.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="mathematical-theory-of-radiative-feedbacks">
+<h1>Mathematical Theory of Radiative Feedbacks<a class="headerlink" href="#mathematical-theory-of-radiative-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
 <hr class="docutils" />
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>If you have an introductory paragraph, lead with it here! Keep it short and tied to your material, then be sure to continue into the required list of topics below,</p>
-<ol class="arabic simple">
-<li><p>This is a numbered list of the specific topics</p></li>
-<li><p>These should map approximately to your main sections of content</p></li>
-<li><p>Or each second-level, <code class="docutils literal notranslate"><span class="pre">##</span></code>, header in your notebook</p></li>
-<li><p>Keep the size and scope of your notebook in check</p></li>
-<li><p>And be sure to let the reader know up front the important concepts they’ll be leaving with</p></li>
-</ol>
+<p>This tutorial explains the mathematical theory used in calculating radiative feedbacks.</p>
 </section>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>This section was inspired by <a class="reference external" href="https://github.com/alan-turing-institute/the-turing-way/blob/master/book/templates/chapter-template/chapter-landing-page.md">this template</a> of the wonderful <a class="reference external" href="https://the-turing-way.netlify.app">The Turing Way</a> Jupyter Book.</p>
-<p>Following your overview, tell your reader what concepts, packages, or other background information they’ll <strong>need</strong> before learning your material. Tie this explicitly with links to other pages here in Foundations or to relevant external resources. Remove this body text, then populate the Markdown table, denoted in this cell with <code class="docutils literal notranslate"><span class="pre">|</span></code> vertical brackets, below, and fill out the information following. In this table, lay out prerequisite concepts by explicitly linking to other Foundations material or external resources, or describe generally helpful concepts.</p>
-<p>Label the importance of each concept explicitly as <strong>helpful/necessary</strong>.</p>
+<p>The following concepts will be referred to or explicitly used in this tutorial.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concepts</p></th>
@@ -484,42 +468,15 @@
 </div>
 </div>
 </section>
-<section id="your-first-content-section">
-<h2>Your first content section<a class="headerlink" href="#your-first-content-section" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<section id="radiative-budget-analysis">
+<h2>Radiative Budget Analysis<a class="headerlink" href="#radiative-budget-analysis" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>This is where you begin your first section of material, loosely tied to your objectives stated up front. Tie together your notebook as a narrative, with interspersed Markdown text, images, and more as necessary,</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># as well as any and all of your code cells</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
-</pre></div>
-</div>
-</div>
-</div>
-<section id="a-content-subsection">
-<h3>A content subsection<a class="headerlink" href="#a-content-subsection" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>Divide and conquer your objectives with Markdown subsections, which will populate the helpful navbar in Jupyter Lab and here on the Jupyter Book!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># some subsection code</span>
-<span class="n">new</span> <span class="o">=</span> <span class="s2">&quot;helpful information&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="another-content-subsection">
-<h3>Another content subsection<a class="headerlink" href="#another-content-subsection" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
-<p>Keep up the good work! A note, <em>try to avoid using code comments as narrative</em>, and instead let them only exist as brief clarifications where necessary.</p>
-</section>
-</section>
-<section id="your-second-content-section">
-<h2>Your second content section<a class="headerlink" href="#your-second-content-section" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>Here we can move on to our second objective, and we can demonstrate</p>
+<section id="methods-of-estimating-cloud-feedbacks">
+<h2>Methods of Estimating Cloud Feedbacks<a class="headerlink" href="#methods-of-estimating-cloud-feedbacks" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>Clouds are generally assumed to be the largest source of uncertainty in the global climate response to radiative forcing. Cloud formation and lifetime are dictated by complex processes occurring at micro and macro-scale, and their radiative properties depend on the cloud type and optical properties. The nonlinear radiative effects of clouds are thus not suitable for direct calculation by kernels.</p>
+<p>Several methods have evolved to estimate cloud feedbacks.
+<a href="https://doi.org/10.1175/JCLI3799.1">Soden and Held (2006)</a> computed the cloud feedback as the residual difference between the effective climate sensitivity and all other feedbacks.<a href="https://doi.org/10.1175/2007JCLI2110.1"> Soden et al. (2008)</a> calculated cloud feedback as a sum of the change in cloud radiative forcing and the difference between the full-sky and clear-sky kernels. However,<a href="https://doi.org/10.1175/JCLI-D-11-00248.1"> Held and Shell (2012) </a> have pointed out that the decomposition of radiative feedbacks into the mechanisms discussed herein is rather arbitrary and proposed the use of tropospheric relative humidity</p>
 <section id="subsection-to-the-second-section">
 <h3>Subsection to the second section<a class="headerlink" href="#subsection-to-the-second-section" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <section id="a-quick-demonstration">
@@ -529,8 +486,8 @@
 <section id="header-levels">
 <h6>header levels<a class="headerlink" href="#header-levels" title="Link to this heading"><i class="fas fa-link"></i></a></h6>
 <p>as well <span class="math notranslate nohighlight">\(m = a * t / h\)</span> text! Similarly, you have access to other <span class="math notranslate nohighlight">\(\LaTeX\)</span> equation <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Typesetting%20Equations.html"><strong>functionality</strong></a> via MathJax (demo below from link),</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4db09dbe-8cfb-4d37-bccf-bd8c8532f0b2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4db09dbe-8cfb-4d37-bccf-bd8c8532f0b2" title="Permalink to this equation"><i class="fas fa-link"></i></a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6718145c-52eb-4e8c-a166-0f21b819c09d">
+<span class="eqno">(1)<a class="headerlink" href="#equation-6718145c-52eb-4e8c-a166-0f21b819c09d" title="Permalink to this equation"><i class="fas fa-link"></i></a></span>\[\begin{align}
 \dot{x} &amp; = \sigma(y-x) \\
 \dot{y} &amp; = \rho x - y - xz \\
 \dot{z} &amp; = -\beta z + xy
@@ -654,12 +611,8 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-first-content-section">Your first content section</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-content-subsection">A content subsection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-content-subsection">Another content subsection</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-second-content-section">Your second content section</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-budget-analysis">Radiative Budget Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-of-estimating-cloud-feedbacks">Methods of Estimating Cloud Feedbacks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsection-to-the-second-section">Subsection to the second section</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-demonstration">a quick demonstration</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#of-further-and-further">of further and further</a><ul class="nav section-nav flex-column">
@@ -920,7 +873,7 @@ By the <a href="https://projectpythia.org/">Project Pythia</a> Community
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on 13 June 2024.
+  Last updated on 14 June 2024.
   <br/>
 </p>
   </div>
@@ -974,7 +927,7 @@ By the <a href="https://projectpythia.org/">Project Pythia</a> Community
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 13 June 2024.
+          Last updated on 14 June 2024.
         </p>
       </div>
     </div>
