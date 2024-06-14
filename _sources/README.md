@@ -1,4 +1,4 @@
-<img src="radiative-feedback-cookbook/notebooks/images/thumbnail.png" alt="thumbnail" width="300"/>
+<img src="notebooks/images/thumbnail.png" alt="thumbnail" width="300"/>
 
 # Radiative Feedback Cookbook
 
