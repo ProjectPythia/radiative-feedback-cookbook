@@ -448,22 +448,12 @@
 </table>
 </div>
 <ul class="simple">
-<li><p><strong>Time to learn</strong>: 30 minutes?</p></li>
+<li><p><strong>Time to learn</strong>: &gt;30 minutes</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>We will import commonly used scientific Python packages for this notebook.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
-</pre></div>
-</div>
-</div>
-</div>
+<section id="radiative-budget-analysis">
+<h2>Radiative Budget Analysis<a class="headerlink" href="#radiative-budget-analysis" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 </section>
 <section id="the-energy-balance-model">
 <h2>The Energy Balance Model<a class="headerlink" href="#the-energy-balance-model" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
@@ -550,8 +540,8 @@ This metric tells how much the climate system would warm per unit of radiative f
  -4\sigma T_e^3 \approx - 3.76 Wm^{-2}K^{-1}
 \end{equation*}\]</div>
 <p>If we include the planetary emissivity <span class="math notranslate nohighlight">\(\epsilon\)</span>, we will get <span class="math notranslate nohighlight">\(\lambda_{Planck} \approx -3.3Wm^{-2}K^{-1}\)</span>, which is close to observations <span id="id15">[<a class="reference internal" href="../../references.html#id11" title="A. E. Dessler. Observations of climate feedbacks over 2000–10 and comparisons to climate models. Journal of Climate, 26(1):333 - 342, 2013. doi:10.1175/JCLI-D-11-00640.1.">Dessler, 2013</a>]</span> and global climate models <span id="id16">[<a class="reference internal" href="../../references.html#id10" title="Peter M. Caldwell, Mark D. Zelinka, Karl E. Taylor, and Kate Marvel. Quantifying the sources of intermodel spread in equilibrium climate sensitivity. Journal of Climate, 29(2):513 - 524, 2016. doi:10.1175/JCLI-D-15-0352.1.">Caldwell <em>et al.</em>, 2016</a>]</span>).</p>
-<p>Simply put, the more you heat, the more LW radiation go out.
-[TO BE POLISHED]
+<p><strong>Simply put, the more you heat, the more LW radiation go out.</strong></p>
+<p>[TO BE POLISHED]
 *Kernel related: structural uncertainty in Planck feedback arises from differences in spatial pattern of surface warming and climatological distribution fo clodus and water vapor that determines planetary emissivity - affects radiative temperature kernel <span id="id17">[<a class="reference internal" href="../../references.html#id7" title="S. C. Sherwood, M. J. Webb, J. D. Annan, K. C. Armour, P. M. Forster, J. C. Hargreaves, G. Hegerl, S. A. Klein, K. D. Marvel, E. J. Rohling, M. Watanabe, T. Andrews, P. Braconnot, C. S. Bretherton, G. L. Foster, Z. Hausfather, A. S. von der Heydt, R. Knutti, T. Mauritsen, J. R. Norris, C. Proistosescu, M. Rugenstein, G. A. Schmidt, K. B. Tokarska, and M. D. Zelinka. An assessment of earth's climate sensitivity using multiple lines of evidence. Reviews of Geophysics, 58(4):e2019RG000678, 2020. e2019RG000678 2019RG000678. doi:https://doi.org/10.1029/2019RG000678.">Sherwood <em>et al.</em>, 2020</a>]</span>.</p>
 <p>Types of radiative kernels there are: sfc albedo, air temp (vert.varying) , surf temp, LW water vapor kernel, SW water vapor kernel</p>
 <div class="admonition alert alert-info">
@@ -577,7 +567,7 @@ This metric tells how much the climate system would warm per unit of radiative f
 <p>LATERRRRRR</p>
 </section>
 <section id="cloud-feedback">
-<h3>4. Cloud Feedback<a class="headerlink" href="#cloud-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
+<h3>5. Cloud Feedback<a class="headerlink" href="#cloud-feedback" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p>The cloud feedback mechanism is the most complex feedback discussed in this tutorial. There are several reasons for this. Clouds interact with both shortwave (SW) solar radiation and longwave (LW) terrestrial radiation and exert varying radiative effects depending on their properties (cloud type, height, optical depth, liquid and ice water content, particule sizes, etc).</p>
 <p>Generally, high-level clouds do not interact much with solar radiation but easily absorb terrestrial radiation, preventing its loss to space and contribute to warming. Low-level clouds reflect solar radiation during the day, which contributes to cooling, but absorb some terrestrial radiation,  contributing to warming (particularly at night!). Thus, high-level clouds tend to exert a positive climate feedback, while low-level clouds tend to exert an overall negative climate feedback.</p>
 <p><img alt="High cloud versus low cloud radiative effects" src="../../_images/2-whycloudsare.jpg" /><br>
@@ -696,7 +686,7 @@ Cloud formation and lifetime is additionally complex as it is highly dependent o
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-budget-analysis">Radiative Budget Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-energy-balance-model">The Energy Balance Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiative-feedback-lambda">Radiative Feedback <span class="math notranslate nohighlight">\((\lambda)\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-what-is-a-feedback-and-why-does-it-matter">So, what is a feedback and why does it matter?</a></li>
@@ -705,7 +695,7 @@ Cloud formation and lifetime is additionally complex as it is highly dependent o
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-albedo-feedback-positive-under-warming">2. Surface Albedo Feedback (Positive under warming)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-vapor-feedback-positive-under-warming">3. Water Vapor Feedback: (Positive under warming)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lapse-rate-feedback-negative-under-warming">4. Lapse Rate Feedback (Negative under warming)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback">4. Cloud Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-feedback">5. Cloud Feedback</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-calculate-raditaive-feedback">Methods to Calculate Raditaive Feedback</a></li>
