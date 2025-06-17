@@ -1,6 +1,6 @@
-<img src="notebooks/images/thumbnail.png" alt="thumbnail" width="500"/>
-
 # Radiative Feedback Cookbook
+
+<img src="notebooks/images/thumbnail.png" alt="thumbnail" width="500"/>
 
 [![nightly-build](https://github.com/ProjectPythia/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/radiative-feedback-cookbook/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/radiative-feedback-cookbook/main?labpath=notebooks)
