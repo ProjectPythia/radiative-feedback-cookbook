@@ -23,10 +23,6 @@ project:
       children:
         - file: notebooks/foundations/energy-balance-model.ipynb
         - file: notebooks/feedback-analysis/manual-calc.ipynb
-    - title: Feedback Analysis
-      children:
-        - file: notebooks/feedback-analysis/manual-calc.ipynb
-        - file: notebooks/feedback-analysis/aprp.ipynb
         - file: notebooks/simplified-calc/climkern-calc.ipynb
     - title: Appendix
       children:
