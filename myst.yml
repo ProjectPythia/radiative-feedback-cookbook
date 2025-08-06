@@ -22,16 +22,12 @@ project:
     - title: Foundations
       children:
         - file: notebooks/foundations/energy-balance-model.ipynb
-        - file: notebooks/foundations/theory-rad-feedback.ipynb
+        - file: notebooks/feedback-analysis/manual-calc.ipynb
     - title: Feedback Analysis
       children:
         - file: notebooks/feedback-analysis/manual-calc.ipynb
         - file: notebooks/feedback-analysis/aprp.ipynb
-    - title: Simplifying Calculations
-      children:
         - file: notebooks/simplified-calc/climkern-calc.ipynb
-        - file: notebooks/simplified-calc/kernel-comparison.ipynb
-        - file: notebooks/simplified-calc/state-dependence.ipynb
     - title: Appendix
       children:
         - file: references.md
