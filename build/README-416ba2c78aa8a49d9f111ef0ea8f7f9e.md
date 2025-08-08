@@ -16,7 +16,7 @@ This Cookbook aims to fill this gap by collecting a verbose set of tutorials tha
 
 ## Authors
 
-[Brian Rose](https://github.com/brian-rose), [Rachel Tam](https://github.com/rytam2), [Ty Janoski](https://github.com/tyfolino), [Robert Ford](https://github.com/r-ford), [Hannah Zafar](https://github.com/hannahzafar), and [Ana Castaneda Montoya](https://github.com/anacmontoya)
+[Brian Rose](https://github.com/brian-rose), [Rachel Tam](https://github.com/rytam2), [Ty Janoski](https://github.com/tyfolino), [Robert Ford](https://github.com/r-ford), [Hannah Zafar](https://github.com/hannahzafar), [Ana Castaneda Montoya](https://github.com/anacmontoya), and [Kathryn Rooney](https://github.com/kathrynrooney)
 
 ### Contributors
 
