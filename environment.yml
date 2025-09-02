@@ -23,6 +23,8 @@ dependencies:
   - gcsfs
   - s3fs
   - h5netcdf
+  - pooch
+  - plac
   - pip
   - pip:
     - git+https://github.com/brian-rose/climkern.git@stream  # a modified version that streams the kernel data
