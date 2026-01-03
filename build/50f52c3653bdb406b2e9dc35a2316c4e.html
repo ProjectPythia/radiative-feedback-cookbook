@@ -1,0 +1,520 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in notebooks */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-obj-name,
+.xr-group-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-group-name::before {
+  content: "📁";
+  padding-right: 0.3em;
+}
+
+.xr-group-name,
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-group-box {
+  display: inline-grid;
+  grid-template-columns: 0px 20px auto;
+  width: 100%;
+}
+
+.xr-group-box-vline {
+  grid-column-start: 1;
+  border-right: 0.2em solid;
+  border-color: var(--xr-border-color);
+  width: 0px;
+}
+
+.xr-group-box-hline {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  height: 1em;
+  width: 20px;
+  border-bottom: 0.2em solid;
+  border-color: var(--xr-border-color);
+}
+
+.xr-group-box-contents {
+  grid-column-start: 3;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 228MB
+Dimensions:   (month: 12, plev: 37, lat: 73, lon: 144)
+Coordinates:
+  * month     (month) int64 96B 1 2 3 4 5 6 7 8 9 10 11 12
+  * plev      (plev) float32 148B 1e+03 975.0 950.0 925.0 ... 5.0 3.0 2.0 1.0
+  * lat       (lat) float32 292B 90.0 87.5 85.0 82.5 ... -82.5 -85.0 -87.5 -90.0
+  * lon       (lon) float32 576B 0.0 2.5 5.0 7.5 ... 350.0 352.5 355.0 357.5
+Data variables:
+    lwclr_t   (month, plev, lat, lon) float64 37MB ...
+    lw_t      (month, plev, lat, lon) float64 37MB ...
+    lwclr_q   (month, plev, lat, lon) float64 37MB ...
+    lw_q      (month, plev, lat, lon) float64 37MB ...
+    swclr_q   (month, plev, lat, lon) float64 37MB ...
+    sw_q      (month, plev, lat, lon) float64 37MB ...
+    swclr_a   (month, lat, lon) float64 1MB ...
+    sw_a      (month, lat, lon) float64 1MB ...
+    lwclr_ts  (month, lat, lon) float64 1MB ...
+    lw_ts     (month, lat, lon) float64 1MB ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-a95564c1-8546-4169-9136-89ee671c1e19' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a95564c1-8546-4169-9136-89ee671c1e19' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>month</span>: 12</li><li><span class='xr-has-index'>plev</span>: 37</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7c1216f6-ee8a-4c32-b4ca-5bbb378b3464' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7c1216f6-ee8a-4c32-b4ca-5bbb378b3464' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>month</span></div><div class='xr-var-dims'>(month)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 7 8 9 10 11 12</div><input id='attrs-027b9b22-3663-4e3e-b322-163f9213fcc3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-027b9b22-3663-4e3e-b322-163f9213fcc3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c91da402-da49-4d28-b7e6-f67ce608d8c9' class='xr-var-data-in' type='checkbox'><label for='data-c91da402-da49-4d28-b7e6-f67ce608d8c9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>plev</span></div><div class='xr-var-dims'>(plev)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1e+03 975.0 950.0 ... 3.0 2.0 1.0</div><input id='attrs-3b78d5a1-5655-4b58-b802-413e3baba4cd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b78d5a1-5655-4b58-b802-413e3baba4cd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d83851f0-3b4d-499f-a8ca-071a5bf39c98' class='xr-var-data-in' type='checkbox'><label for='data-d83851f0-3b4d-499f-a8ca-071a5bf39c98' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  975.,  950.,  925.,  900.,  875.,  850.,  825.,  800.,  775.,
+        750.,  700.,  650.,  600.,  550.,  500.,  450.,  400.,  350.,  300.,
+        250.,  225.,  200.,  175.,  150.,  125.,  100.,   70.,   50.,   30.,
+         20.,   10.,    7.,    5.,    3.,    2.,    1.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-c9495a71-9be4-4d5e-9c63-b7063a955d38' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c9495a71-9be4-4d5e-9c63-b7063a955d38' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4e6ee90e-58b8-4578-a6c5-4dcd9109cc0c' class='xr-var-data-in' type='checkbox'><label for='data-4e6ee90e-58b8-4578-a6c5-4dcd9109cc0c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
+        65. ,  62.5,  60. ,  57.5,  55. ,  52.5,  50. ,  47.5,  45. ,  42.5,
+        40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,  20. ,  17.5,
+        15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,  -5. ,  -7.5,
+       -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5, -30. , -32.5,
+       -35. , -37.5, -40. , -42.5, -45. , -47.5, -50. , -52.5, -55. , -57.5,
+       -60. , -62.5, -65. , -67.5, -70. , -72.5, -75. , -77.5, -80. , -82.5,
+       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-6fa7b764-0f50-4dcc-b044-3cd5e59843db' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6fa7b764-0f50-4dcc-b044-3cd5e59843db' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0207edd9-5d57-4405-9c07-d8fe604eae44' class='xr-var-data-in' type='checkbox'><label for='data-0207edd9-5d57-4405-9c07-d8fe604eae44' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+        25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
+        50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
+        75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
+       100. , 102.5, 105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5,
+       125. , 127.5, 130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5,
+       150. , 152.5, 155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5,
+       175. , 177.5, 180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5,
+       200. , 202.5, 205. , 207.5, 210. , 212.5, 215. , 217.5, 220. , 222.5,
+       225. , 227.5, 230. , 232.5, 235. , 237.5, 240. , 242.5, 245. , 247.5,
+       250. , 252.5, 255. , 257.5, 260. , 262.5, 265. , 267.5, 270. , 272.5,
+       275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
+       300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
+       325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-879ea015-6571-4c21-8389-c83d6ad0711b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-879ea015-6571-4c21-8389-c83d6ad0711b' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_t</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f5e2e2cc-fcde-4c89-8248-5b213ebef758' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f5e2e2cc-fcde-4c89-8248-5b213ebef758' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f9f3aafa-872a-49c5-96c3-0839433bd0eb' class='xr-var-data-in' type='checkbox'><label for='data-f9f3aafa-872a-49c5-96c3-0839433bd0eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>air temperature kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_t</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c882de7e-aa92-46c6-ad85-2926bbf644b9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c882de7e-aa92-46c6-ad85-2926bbf644b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-95e72603-94c7-457b-b0c7-fa05459d9e89' class='xr-var-data-in' type='checkbox'><label for='data-95e72603-94c7-457b-b0c7-fa05459d9e89' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>air temperature kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_q</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0ce8eb67-e772-4b84-9796-465238c4c688' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0ce8eb67-e772-4b84-9796-465238c4c688' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-475e840d-6d88-4e1d-a8a2-e7906d1766e6' class='xr-var-data-in' type='checkbox'><label for='data-475e840d-6d88-4e1d-a8a2-e7906d1766e6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor LW kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_q</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-09b99ed0-0d48-48ea-8efc-6341d5084aef' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-09b99ed0-0d48-48ea-8efc-6341d5084aef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e7de7fb0-c7df-4f71-8e81-af4b3e97255e' class='xr-var-data-in' type='checkbox'><label for='data-e7de7fb0-c7df-4f71-8e81-af4b3e97255e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor LW kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swclr_q</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-01b24a40-aa1f-4b4d-862a-c60efa06ca80' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-01b24a40-aa1f-4b4d-862a-c60efa06ca80' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-49e608ca-3b3c-4853-b46b-83ce50f00b2b' class='xr-var-data-in' type='checkbox'><label for='data-49e608ca-3b3c-4853-b46b-83ce50f00b2b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor SW kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sw_q</span></div><div class='xr-var-dims'>(month, plev, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f03c3584-00ae-492f-8bf2-da886114c3cb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f03c3584-00ae-492f-8bf2-da886114c3cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d3f87959-6ae6-4f1a-9446-d695c1471fe1' class='xr-var-data-in' type='checkbox'><label for='data-d3f87959-6ae6-4f1a-9446-d695c1471fe1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water vapor SW kenrel in all-sky for TOA</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>units :</span></dt><dd>W/m2/K/100hPa</dd></dl></div><div class='xr-var-data'><pre>[4667328 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swclr_a</span></div><div class='xr-var-dims'>(month, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8fc91acf-777b-4594-bc68-2c69637dc90a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8fc91acf-777b-4594-bc68-2c69637dc90a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c61286a4-cb6f-4ada-b5a3-0eac616ad228' class='xr-var-data-in' type='checkbox'><label for='data-c61286a4-cb6f-4ada-b5a3-0eac616ad228' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce albedo kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/1%</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sw_a</span></div><div class='xr-var-dims'>(month, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9b7141a1-2b01-4299-b1bd-ed6c6fc99a92' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9b7141a1-2b01-4299-b1bd-ed6c6fc99a92' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-36839ae2-9e3a-4876-933d-1cb7dc51f3a2' class='xr-var-data-in' type='checkbox'><label for='data-36839ae2-9e3a-4876-933d-1cb7dc51f3a2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce albedo kenrel in all-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/1%</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lwclr_ts</span></div><div class='xr-var-dims'>(month, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-edd36765-0821-4534-a24b-df06be883ed5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-edd36765-0821-4534-a24b-df06be883ed5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1a4d5c89-1bf9-47d6-a7ac-3f56370419f8' class='xr-var-data-in' type='checkbox'><label for='data-1a4d5c89-1bf9-47d6-a7ac-3f56370419f8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce temperature kenrel in clear-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K</dd><dt><span>band :</span></dt><dd>1.0</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lw_ts</span></div><div class='xr-var-dims'>(month, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e6b40752-ca05-462f-922b-f11d3849f392' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e6b40752-ca05-462f-922b-f11d3849f392' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bd120a0-0c6e-4884-acbe-33d61c646ff0' class='xr-var-data-in' type='checkbox'><label for='data-1bd120a0-0c6e-4884-acbe-33d61c646ff0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>surafce temperature kenrel in all-sky for TOA</dd><dt><span>units :</span></dt><dd>W/m2/K</dd><dt><span>average_op_ncl :</span></dt><dd>dim_avg_n function was applied</dd><dt><span>up_down_net :</span></dt><dd>1.0</dd><dt><span>band :</span></dt><dd>1.0</dd></dl></div><div class='xr-var-data'><pre>[126144 values with dtype=float64]</pre></div></li></ul></div></li></ul></div></div>
