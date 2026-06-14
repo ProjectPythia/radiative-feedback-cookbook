@@ -30,7 +30,7 @@ This Cookbook is organized as follows:
 
 ### Foundations
 
-This section takes the reader through some of the basic ideas and provides an overview of the mathematical theory underlying the radiative kernel method.
+This section takes the reader through some of the basic ideas and provides an overview of the mathematical theory underlying feedback analysis.
 
 ### Feedback Analysis
 
