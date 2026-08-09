@@ -1,0 +1,396 @@
+[31m---------------------------------------------------------------------------[39m
+[31mConnectionRefusedError[39m                    Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:1301[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
+[32m   1298[39m [38;5;28;01masync[39;00m [38;5;28;01mwith[39;00m ceil_timeout(
+[32m   1299[39m     timeout.sock_connect, ceil_threshold=timeout.ceil_threshold
+[32m   1300[39m ):
+[32m-> [39m[32m1301[39m     sock = [38;5;28;01mawait[39;00m aiohappyeyeballs.start_connection(
+[32m   1302[39m         addr_infos=addr_infos,
+[32m   1303[39m         local_addr_infos=[38;5;28mself[39m._local_addr_infos,
+[32m   1304[39m         happy_eyeballs_delay=[38;5;28mself[39m._happy_eyeballs_delay,
+[32m   1305[39m         interleave=[38;5;28mself[39m._interleave,
+[32m   1306[39m         loop=[38;5;28mself[39m._loop,
+[32m   1307[39m         socket_factory=[38;5;28mself[39m._socket_factory,
+[32m   1308[39m     )
+[32m   1309[39m     [38;5;66;03m# Add ssl_shutdown_timeout for Python 3.11+ when SSL is used[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohappyeyeballs/impl.py:124[39m, in [36mstart_connection[39m[34m(addr_infos, local_addr_infos, happy_eyeballs_delay, interleave, loop, socket_factory)[39m
+[32m    123[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(all_exceptions) == [32m1[39m:
+[32m--> [39m[32m124[39m     [38;5;28;01mraise[39;00m first_exception
+[32m    125[39m [38;5;28;01melse[39;00m:
+[32m    126[39m     [38;5;66;03m# If they all have the same str(), raise one.[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohappyeyeballs/impl.py:75[39m, in [36mstart_connection[39m[34m(addr_infos, local_addr_infos, happy_eyeballs_delay, interleave, loop, socket_factory)[39m
+[32m     74[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m75[39m     sock = [38;5;28;01mawait[39;00m _connect_sock(
+[32m     76[39m         current_loop,
+[32m     77[39m         exceptions,
+[32m     78[39m         addrinfo,
+[32m     79[39m         local_addr_infos,
+[32m     80[39m         [38;5;28;01mNone[39;00m,
+[32m     81[39m         socket_factory,
+[32m     82[39m     )
+[32m     83[39m     [38;5;28;01mbreak[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohappyeyeballs/impl.py:210[39m, in [36m_connect_sock[39m[34m(loop, exceptions, addr_info, local_addr_infos, open_sockets, socket_factory)[39m
+[32m    209[39m             [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m([33mf[39m[33m"[39m[33mno matching local address with [39m[38;5;132;01m{[39;00mfamily[38;5;132;01m=}[39;00m[33m found[39m[33m"[39m)
+[32m--> [39m[32m210[39m [38;5;28;01mawait[39;00m loop.sock_connect(sock, address)
+[32m    211[39m [38;5;28;01mreturn[39;00m sock
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/asyncio/selector_events.py:647[39m, in [36mBaseSelectorEventLoop.sock_connect[39m[34m(self, sock, address)[39m
+[32m    646[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m647[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m fut
+[32m    648[39m [38;5;28;01mfinally[39;00m:
+[32m    649[39m     [38;5;66;03m# Needed to break cycles when an exception occurs.[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/asyncio/selector_events.py:687[39m, in [36mBaseSelectorEventLoop._sock_connect_cb[39m[34m(self, fut, sock, address)[39m
+[32m    685[39m     [38;5;28;01mif[39;00m err != [32m0[39m:
+[32m    686[39m         [38;5;66;03m# Jump to any except clause below.[39;00m
+[32m--> [39m[32m687[39m         [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(err, [33mf[39m[33m'[39m[33mConnect call failed [39m[38;5;132;01m{[39;00maddress[38;5;132;01m}[39;00m[33m'[39m)
+[32m    688[39m [38;5;28;01mexcept[39;00m ([38;5;167;01mBlockingIOError[39;00m, [38;5;167;01mInterruptedError[39;00m):
+[32m    689[39m     [38;5;66;03m# socket is still registered, the callback will be retried later[39;00m
+
+[31mConnectionRefusedError[39m: [Errno 111] Connect call failed ('149.165.158.2', 8001)
+
+The above exception was the direct cause of the following exception:
+
+[31mClientConnectorError[39m                      Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/httpsession.py:236[39m, in [36mAIOHTTPSession.send[39m[34m(self, request)[39m
+[32m    235[39m session = [38;5;28;01mawait[39;00m [38;5;28mself[39m._get_session(proxy_url)
+[32m--> [39m[32m236[39m response = [38;5;28;01mawait[39;00m session.request(
+[32m    237[39m     request.method,
+[32m    238[39m     url=url,
+[32m    239[39m     chunked=[38;5;28mself[39m._chunked(headers_),
+[32m    240[39m     headers=headers_,
+[32m    241[39m     data=data,
+[32m    242[39m     proxy=proxy_url,
+[32m    243[39m     proxy_headers=proxy_headers,
+[32m    244[39m )
+[32m    246[39m [38;5;66;03m# botocore converts keys to str, so make sure that they are in[39;00m
+[32m    247[39m [38;5;66;03m# the expected case. See detailed discussion here:[39;00m
+[32m    248[39m [38;5;66;03m# https://github.com/aio-libs/aiobotocore/pull/116[39;00m
+[32m    249[39m [38;5;66;03m# aiohttp's CIMultiDict camel cases the headers :([39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/client.py:858[39m, in [36mClientSession._request[39m[34m(self, method, str_or_url, params, data, json, cookies, headers, skip_auto_headers, auth, allow_redirects, max_redirects, compress, chunked, expect100, raise_for_status, read_until_eof, proxy, proxy_auth, timeout, verify_ssl, fingerprint, ssl_context, ssl, server_hostname, proxy_headers, trace_request_ctx, read_bufsize, auto_decompress, max_line_size, max_field_size, max_headers, middlewares)[39m
+[32m    857[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m858[39m     resp = [38;5;28;01mawait[39;00m handler(req)
+[32m    859[39m [38;5;66;03m# Client connector errors should not be retried[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/client.py:812[39m, in [36mClientSession._request.<locals>._connect_and_send_request[39m[34m(req)[39m
+[32m    811[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m812[39m     conn = [38;5;28;01mawait[39;00m [38;5;28mself[39m._connector.connect(
+[32m    813[39m         req, traces=traces, timeout=real_timeout
+[32m    814[39m     )
+[32m    815[39m [38;5;28;01mexcept[39;00m asyncio.TimeoutError [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:657[39m, in [36mBaseConnector.connect[39m[34m(self, req, traces, timeout)[39m
+[32m    656[39m         [38;5;28;01mawait[39;00m trace.send_connection_create_start()
+[32m--> [39m[32m657[39m proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._create_connection(req, traces, timeout)
+[32m    658[39m [38;5;28;01mif[39;00m traces:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:1242[39m, in [36mTCPConnector._create_connection[39m[34m(self, req, traces, timeout)[39m
+[32m   1241[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1242[39m     _, proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._create_direct_connection(req, traces, timeout)
+[32m   1244[39m [38;5;28;01mreturn[39;00m proto
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:1620[39m, in [36mTCPConnector._create_direct_connection[39m[34m(self, req, traces, timeout, client_error)[39m
+[32m   1619[39m [38;5;28;01massert[39;00m last_exc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[32m-> [39m[32m1620[39m [38;5;28;01mraise[39;00m last_exc
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:1589[39m, in [36mTCPConnector._create_direct_connection[39m[34m(self, req, traces, timeout, client_error)[39m
+[32m   1588[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1589[39m     transp, proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._wrap_create_connection(
+[32m   1590[39m         [38;5;28mself[39m._factory,
+[32m   1591[39m         timeout=timeout,
+[32m   1592[39m         ssl=sslcontext,
+[32m   1593[39m         addr_infos=addr_infos,
+[32m   1594[39m         server_hostname=server_hostname,
+[32m   1595[39m         req=req,
+[32m   1596[39m         client_error=client_error,
+[32m   1597[39m     )
+[32m   1598[39m [38;5;28;01mexcept[39;00m (ClientConnectorError, asyncio.TimeoutError) [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiohttp/connector.py:1324[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
+[32m   1323[39m     [38;5;28;01mraise[39;00m
+[32m-> [39m[32m1324[39m [38;5;28;01mraise[39;00m client_error(req.connection_key, exc) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
+
+[31mClientConnectorError[39m: Cannot connect to host js2.jetstream-cloud.org:8001 ssl:default [Connect call failed ('149.165.158.2', 8001)]
+
+During handling of the above exception, another exception occurred:
+
+[31mEndpointConnectionError[39m                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 7[39m
+[32m      3[39m fs = fsspec.filesystem([33m"s3"[39m, anon=[38;5;28;01mTrue[39;00m, client_kwargs=dict(endpoint_url=URL))
+[32m      4[39m pattern = f"s3://{path}/kernels/"+kernel+f"/TOA*.nc"
+[32m      5[39m 
+[32m      6[39m [38;5;66;03m# Grab the data[39;00m
+[32m----> [39m[32m7[39m files = sorted(fs.glob(pattern))
+[32m      8[39m fs.invalidate_cache() [38;5;66;03m# This is necessary to deal with peculiarities of objects served from jetstream2[39;00m
+[32m      9[39m 
+[32m     10[39m [38;5;66;03m# Open file and make it Xarray Dataset[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/fsspec/asyn.py:118[39m, in [36msync_wrapper.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    115[39m [38;5;129m@functools[39m.wraps(func)
+[32m    116[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mwrapper[39m(*args, **kwargs):
+[32m    117[39m     [38;5;28mself[39m = obj [38;5;129;01mor[39;00m args[[32m0[39m]
+[32m--> [39m[32m118[39m     [38;5;28;01mreturn[39;00m [30;43msync[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mloop[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mfunc[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/fsspec/asyn.py:103[39m, in [36msync[39m[34m(loop, func, timeout, *args, **kwargs)[39m
+[32m    101[39m     [38;5;28;01mraise[39;00m FSTimeoutError [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mreturn_result[39;00m
+[32m    102[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(return_result, [38;5;167;01mBaseException[39;00m):
+[32m--> [39m[32m103[39m     [38;5;28;01mraise[39;00m return_result
+[32m    104[39m [38;5;28;01melse[39;00m:
+[32m    105[39m     [38;5;28;01mreturn[39;00m return_result
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/fsspec/asyn.py:56[39m, in [36m_runner[39m[34m(event, coro, result, timeout)[39m
+[32m     54[39m     coro = asyncio.wait_for(coro, timeout=timeout)
+[32m     55[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m56[39m     result[[32m0[39m] = [38;5;28;01mawait[39;00m coro
+[32m     57[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m ex:
+[32m     58[39m     result[[32m0[39m] = ex
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/s3fs/core.py:944[39m, in [36mS3FileSystem._glob[39m[34m(self, path, **kwargs)[39m
+[32m    942[39m [38;5;28;01mif[39;00m path.startswith([33m"[39m[33m*[39m[33m"[39m):
+[32m    943[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33m"[39m[33mCannot traverse all of S3[39m[33m"[39m)
+[32m--> [39m[32m944[39m [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28msuper[39m()._glob(path, **kwargs)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/fsspec/asyn.py:861[39m, in [36mAsyncFileSystem._glob[39m[34m(self, path, maxdepth, **kwargs)[39m
+[32m    859[39m [38;5;28;01mif[39;00m prefix:
+[32m    860[39m     kwargs[[33m"[39m[33mprefix[39m[33m"[39m] = prefix
+[32m--> [39m[32m861[39m allpaths = [38;5;28;01mawait[39;00m [38;5;28mself[39m._find(
+[32m    862[39m     root, maxdepth=depth, withdirs=withdirs, detail=[38;5;28;01mTrue[39;00m, **kwargs
+[32m    863[39m )
+[32m    865[39m pattern = glob_translate(path + ([33m"[39m[33m/[39m[33m"[39m [38;5;28;01mif[39;00m ends_with_sep [38;5;28;01melse[39;00m [33m"[39m[33m"[39m))
+[32m    866[39m pattern = re.compile(pattern)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/s3fs/core.py:981[39m, in [36mS3FileSystem._find[39m[34m(self, path, maxdepth, withdirs, detail, prefix, **kwargs)[39m
+[32m    971[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28msuper[39m()._find(
+[32m    972[39m         bucket + [33m"[39m[33m/[39m[33m"[39m + key,
+[32m    973[39m         maxdepth=maxdepth,
+[32m   (...)[39m[32m    976[39m         **kwargs,
+[32m    977[39m     )
+[32m    978[39m [38;5;66;03m# maxdepth + prefix: one delimiter-based listing for the first level[39;00m
+[32m    979[39m [38;5;66;03m# (server-side prefix filter), then recurse into matching subdirs[39;00m
+[32m    980[39m [38;5;66;03m# normally — avoids fetching all nested objects up front.[39;00m
+[32m--> [39m[32m981[39m first_level = [38;5;28;01mawait[39;00m [38;5;28mself[39m._lsdir(
+[32m    982[39m     path, delimiter=[33m"[39m[33m/[39m[33m"[39m, prefix=prefix, **kwargs
+[32m    983[39m )
+[32m    984[39m files = [o [38;5;28;01mfor[39;00m o [38;5;129;01min[39;00m first_level [38;5;28;01mif[39;00m o[[33m"[39m[33mtype[39m[33m"[39m] != [33m"[39m[33mdirectory[39m[33m"[39m]
+[32m    985[39m dirs = [o [38;5;28;01mfor[39;00m o [38;5;129;01min[39;00m first_level [38;5;28;01mif[39;00m o[[33m"[39m[33mtype[39m[33m"[39m] == [33m"[39m[33mdirectory[39m[33m"[39m]
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/s3fs/core.py:864[39m, in [36mS3FileSystem._lsdir[39m[34m(self, path, refresh, max_items, delimiter, prefix, versions)[39m
+[32m    862[39m dirs = []
+[32m    863[39m files = []
+[32m--> [39m[32m864[39m [38;5;28;01masync[39;00m [38;5;28;01mfor[39;00m c [38;5;129;01min[39;00m [38;5;28mself[39m._iterdir(
+[32m    865[39m     bucket,
+[32m    866[39m     max_items=max_items,
+[32m    867[39m     delimiter=delimiter,
+[32m    868[39m     prefix=prefix,
+[32m    869[39m     versions=versions,
+[32m    870[39m ):
+[32m    871[39m     [38;5;28;01mif[39;00m c[[33m"[39m[33mtype[39m[33m"[39m] == [33m"[39m[33mdirectory[39m[33m"[39m:
+[32m    872[39m         dirs.append(c)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/s3fs/core.py:915[39m, in [36mS3FileSystem._iterdir[39m[34m(self, bucket, max_items, delimiter, prefix, versions)[39m
+[32m    907[39m     config.update(MaxItems=max_items, PageSize=[32m2[39m * max_items)
+[32m    908[39m it = pag.paginate(
+[32m    909[39m     Bucket=bucket,
+[32m    910[39m     Prefix=prefix,
+[32m   (...)[39m[32m    913[39m     **[38;5;28mself[39m.req_kw,
+[32m    914[39m )
+[32m--> [39m[32m915[39m [38;5;28;01masync[39;00m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m it:
+[32m    916[39m     [38;5;28;01mfor[39;00m l [38;5;129;01min[39;00m i.get([33m"[39m[33mCommonPrefixes[39m[33m"[39m, []):
+[32m    917[39m         c = {
+[32m    918[39m             [33m"[39m[33mKey[39m[33m"[39m: l[[33m"[39m[33mPrefix[39m[33m"[39m][:-[32m1[39m],
+[32m    919[39m             [33m"[39m[33mSize[39m[33m"[39m: [32m0[39m,
+[32m    920[39m             [33m"[39m[33mStorageClass[39m[33m"[39m: [33m"[39m[33mDIRECTORY[39m[33m"[39m,
+[32m    921[39m             [33m"[39m[33mtype[39m[33m"[39m: [33m"[39m[33mdirectory[39m[33m"[39m,
+[32m    922[39m         }
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/paginate.py:39[39m, in [36mAioPageIterator.__anext__[39m[34m(self)[39m
+[32m     36[39m [38;5;28mself[39m._inject_starting_params(current_kwargs)
+[32m     38[39m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[32m---> [39m[32m39[39m     response = [38;5;28;01mawait[39;00m [38;5;28mself[39m._make_request(current_kwargs)
+[32m     40[39m     parsed = [38;5;28mself[39m._extract_parsed_response(response)
+[32m     41[39m     [38;5;28;01mif[39;00m first_request:
+[32m     42[39m         [38;5;66;03m# The first request is handled differently.  We could[39;00m
+[32m     43[39m         [38;5;66;03m# possibly have a resume/starting token that tells us where[39;00m
+[32m     44[39m         [38;5;66;03m# to index into the retrieved page.[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/context.py:36[39m, in [36mwith_current_context.<locals>.decorator.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m     34[39m [38;5;28;01mif[39;00m hook:
+[32m     35[39m     [38;5;28;01mawait[39;00m resolve_awaitable(hook())
+[32m---> [39m[32m36[39m [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m func(*args, **kwargs)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/paginate.py:19[39m, in [36mAioPageIterator._make_request[39m[34m(self, current_kwargs)[39m
+[32m     17[39m [38;5;129m@with_current_context[39m(partial(register_feature_id, [33m'[39m[33mPAGINATOR[39m[33m'[39m))
+[32m     18[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_make_request[39m([38;5;28mself[39m, current_kwargs):
+[32m---> [39m[32m19[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._method(**current_kwargs)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/context.py:36[39m, in [36mwith_current_context.<locals>.decorator.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m     34[39m [38;5;28;01mif[39;00m hook:
+[32m     35[39m     [38;5;28;01mawait[39;00m resolve_awaitable(hook())
+[32m---> [39m[32m36[39m [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m func(*args, **kwargs)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/client.py:418[39m, in [36mAioBaseClient._make_api_call[39m[34m(self, operation_name, api_params)[39m
+[32m    414[39m     maybe_compress_request(
+[32m    415[39m         [38;5;28mself[39m.meta.config, request_dict, operation_model
+[32m    416[39m     )
+[32m    417[39m     apply_request_checksum(request_dict)
+[32m--> [39m[32m418[39m     http, parsed_response = [38;5;28;01mawait[39;00m [38;5;28mself[39m._make_request(
+[32m    419[39m         operation_model, request_dict, request_context
+[32m    420[39m     )
+[32m    422[39m [38;5;28;01mawait[39;00m [38;5;28mself[39m.meta.events.emit(
+[32m    423[39m     [33mf[39m[33m'[39m[33mafter-call.[39m[38;5;132;01m{[39;00mservice_id[38;5;132;01m}[39;00m[33m.[39m[38;5;132;01m{[39;00moperation_name[38;5;132;01m}[39;00m[33m'[39m,
+[32m    424[39m     http_response=http,
+[32m   (...)[39m[32m    427[39m     context=request_context,
+[32m    428[39m )
+[32m    430[39m [38;5;28;01mif[39;00m http.status_code >= [32m300[39m:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/client.py:444[39m, in [36mAioBaseClient._make_request[39m[34m(self, operation_model, request_dict, request_context)[39m
+[32m    440[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_make_request[39m(
+[32m    441[39m     [38;5;28mself[39m, operation_model, request_dict, request_context
+[32m    442[39m ):
+[32m    443[39m     [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m444[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._endpoint.make_request(
+[32m    445[39m             operation_model, request_dict
+[32m    446[39m         )
+[32m    447[39m     [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m e:
+[32m    448[39m         [38;5;28;01mawait[39;00m [38;5;28mself[39m.meta.events.emit(
+[32m    449[39m             [33mf[39m[33m'[39m[33mafter-call-error.[39m[38;5;132;01m{[39;00m[38;5;28mself[39m._service_model.service_id.hyphenize()[38;5;132;01m}[39;00m[33m.[39m[38;5;132;01m{[39;00moperation_model.name[38;5;132;01m}[39;00m[33m'[39m,
+[32m    450[39m             exception=e,
+[32m    451[39m             context=request_context,
+[32m    452[39m         )
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/endpoint.py:122[39m, in [36mAioEndpoint._send_request[39m[34m(self, request_dict, operation_model)[39m
+[32m    118[39m request = [38;5;28;01mawait[39;00m [38;5;28mself[39m.create_request(request_dict, operation_model)
+[32m    119[39m success_response, exception = [38;5;28;01mawait[39;00m [38;5;28mself[39m._get_response(
+[32m    120[39m     request, operation_model, context
+[32m    121[39m )
+[32m--> [39m[32m122[39m [38;5;28;01mwhile[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._needs_retry(
+[32m    123[39m     attempts,
+[32m    124[39m     operation_model,
+[32m    125[39m     request_dict,
+[32m    126[39m     success_response,
+[32m    127[39m     exception,
+[32m    128[39m ):
+[32m    129[39m     attempts += [32m1[39m
+[32m    130[39m     [38;5;28mself[39m._update_retries_context(context, attempts, success_response)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/endpoint.py:282[39m, in [36mAioEndpoint._needs_retry[39m[34m(self, attempts, operation_model, request_dict, response, caught_exception)[39m
+[32m    280[39m service_id = operation_model.service_model.service_id.hyphenize()
+[32m    281[39m event_name = [33mf[39m[33m"[39m[33mneeds-retry.[39m[38;5;132;01m{[39;00mservice_id[38;5;132;01m}[39;00m[33m.[39m[38;5;132;01m{[39;00moperation_model.name[38;5;132;01m}[39;00m[33m"[39m
+[32m--> [39m[32m282[39m responses = [38;5;28;01mawait[39;00m [38;5;28mself[39m._event_emitter.emit(
+[32m    283[39m     event_name,
+[32m    284[39m     response=response,
+[32m    285[39m     endpoint=[38;5;28mself[39m,
+[32m    286[39m     operation=operation_model,
+[32m    287[39m     attempts=attempts,
+[32m    288[39m     caught_exception=caught_exception,
+[32m    289[39m     request_dict=request_dict,
+[32m    290[39m )
+[32m    291[39m handler_response = first_non_none_response(responses)
+[32m    292[39m [38;5;28;01mif[39;00m handler_response [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m handler_response [38;5;129;01mis[39;00m [38;5;28;01mFalse[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/hooks.py:68[39m, in [36mAioHierarchicalEmitter._emit[39m[34m(self, event_name, kwargs, stop_on_response)[39m
+[32m     65[39m logger.debug([33m'[39m[33mEvent [39m[38;5;132;01m%s[39;00m[33m: calling handler [39m[38;5;132;01m%s[39;00m[33m'[39m, event_name, handler)
+[32m     67[39m [38;5;66;03m# Await the handler if its a coroutine.[39;00m
+[32m---> [39m[32m68[39m response = [38;5;28;01mawait[39;00m resolve_awaitable(handler(**kwargs))
+[32m     69[39m responses.append((handler, response))
+[32m     70[39m [38;5;28;01mif[39;00m stop_on_response [38;5;129;01mand[39;00m response [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/_helpers.py:6[39m, in [36mresolve_awaitable[39m[34m(obj)[39m
+[32m      4[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mresolve_awaitable[39m(obj):
+[32m      5[39m     [38;5;28;01mif[39;00m inspect.isawaitable(obj):
+[32m----> [39m[32m6[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m obj
+[32m      8[39m     [38;5;28;01mreturn[39;00m obj
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/retryhandler.py:107[39m, in [36mAioRetryHandler._call[39m[34m(self, attempts, response, caught_exception, **kwargs)[39m
+[32m    104[39m     retries_context = kwargs[[33m'[39m[33mrequest_dict[39m[33m'[39m][[33m'[39m[33mcontext[39m[33m'[39m].get([33m'[39m[33mretries[39m[33m'[39m)
+[32m    105[39m     checker_kwargs.update({[33m'[39m[33mretries_context[39m[33m'[39m: retries_context})
+[32m--> [39m[32m107[39m [38;5;28;01mif[39;00m [38;5;28;01mawait[39;00m resolve_awaitable([38;5;28mself[39m._checker(**checker_kwargs)):
+[32m    108[39m     result = [38;5;28mself[39m._action(attempts=attempts)
+[32m    109[39m     logger.debug([33m"[39m[33mRetry needed, action of: [39m[38;5;132;01m%s[39;00m[33m"[39m, result)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/_helpers.py:6[39m, in [36mresolve_awaitable[39m[34m(obj)[39m
+[32m      4[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mresolve_awaitable[39m(obj):
+[32m      5[39m     [38;5;28;01mif[39;00m inspect.isawaitable(obj):
+[32m----> [39m[32m6[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m obj
+[32m      8[39m     [38;5;28;01mreturn[39;00m obj
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/retryhandler.py:126[39m, in [36mAioMaxAttemptsDecorator._call[39m[34m(self, attempt_number, response, caught_exception, retries_context)[39m
+[32m    121[39m [38;5;28;01mif[39;00m retries_context:
+[32m    122[39m     retries_context[[33m'[39m[33mmax[39m[33m'[39m] = [38;5;28mmax[39m(
+[32m    123[39m         retries_context.get([33m'[39m[33mmax[39m[33m'[39m, [32m0[39m), [38;5;28mself[39m._max_attempts
+[32m    124[39m     )
+[32m--> [39m[32m126[39m should_retry = [38;5;28;01mawait[39;00m [38;5;28mself[39m._should_retry(
+[32m    127[39m     attempt_number, response, caught_exception
+[32m    128[39m )
+[32m    129[39m [38;5;28;01mif[39;00m should_retry:
+[32m    130[39m     [38;5;28;01mif[39;00m attempt_number >= [38;5;28mself[39m._max_attempts:
+[32m    131[39m         [38;5;66;03m# explicitly set MaxAttemptsReached[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/retryhandler.py:165[39m, in [36mAioMaxAttemptsDecorator._should_retry[39m[34m(self, attempt_number, response, caught_exception)[39m
+[32m    161[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mTrue[39;00m
+[32m    162[39m [38;5;28;01melse[39;00m:
+[32m    163[39m     [38;5;66;03m# If we've exceeded the max attempts we just let the exception[39;00m
+[32m    164[39m     [38;5;66;03m# propagate if one has occurred.[39;00m
+[32m--> [39m[32m165[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m resolve_awaitable(
+[32m    166[39m         [38;5;28mself[39m._checker(attempt_number, response, caught_exception)
+[32m    167[39m     )
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/_helpers.py:6[39m, in [36mresolve_awaitable[39m[34m(obj)[39m
+[32m      4[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mresolve_awaitable[39m(obj):
+[32m      5[39m     [38;5;28;01mif[39;00m inspect.isawaitable(obj):
+[32m----> [39m[32m6[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m obj
+[32m      8[39m     [38;5;28;01mreturn[39;00m obj
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/retryhandler.py:174[39m, in [36mAioMultiChecker._call[39m[34m(self, attempt_number, response, caught_exception)[39m
+[32m    171[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_call[39m([38;5;28mself[39m, attempt_number, response, caught_exception):
+[32m    172[39m     [38;5;28;01mfor[39;00m checker [38;5;129;01min[39;00m [38;5;28mself[39m._checkers:
+[32m    173[39m         checker_response = [38;5;28;01mawait[39;00m resolve_awaitable(
+[32m--> [39m[32m174[39m             [30;43mchecker[39;49m[30;43m([39;49m[30;43mattempt_number[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mresponse[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mcaught_exception[39;49m[30;43m)[39;49m
+[32m    175[39m         )
+[32m    176[39m         [38;5;28;01mif[39;00m checker_response:
+[32m    177[39m             [38;5;28;01mreturn[39;00m checker_response
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/botocore/retryhandler.py:247[39m, in [36mBaseChecker.__call__[39m[34m(self, attempt_number, response, caught_exception)[39m
+[32m    245[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._check_response(attempt_number, response)
+[32m    246[39m [38;5;28;01melif[39;00m caught_exception [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m--> [39m[32m247[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_check_caught_exception[39;49m[30;43m([39;49m
+[32m    248[39m [30;43m        [39;49m[30;43mattempt_number[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mcaught_exception[39;49m
+[32m    249[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    250[39m [38;5;28;01melse[39;00m:
+[32m    251[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33m"[39m[33mBoth response and caught_exception are None.[39m[33m"[39m)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/botocore/retryhandler.py:416[39m, in [36mExceptionRaiser._check_caught_exception[39m[34m(self, attempt_number, caught_exception)[39m
+[32m    408[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_check_caught_exception[39m([38;5;28mself[39m, attempt_number, caught_exception):
+[32m    409[39m     [38;5;66;03m# This is implementation specific, but this class is useful by[39;00m
+[32m    410[39m     [38;5;66;03m# coordinating with the MaxAttemptsDecorator.[39;00m
+[32m   (...)[39m[32m    414[39m     [38;5;66;03m# the MaxAttemptsDecorator is not interested in retrying the exception[39;00m
+[32m    415[39m     [38;5;66;03m# then this exception just propagates out past the retry code.[39;00m
+[32m--> [39m[32m416[39m     [38;5;28;01mraise[39;00m caught_exception
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/endpoint.py:203[39m, in [36mAioEndpoint._do_get_response[39m[34m(self, request, operation_model, context)[39m
+[32m    201[39m     http_response = first_non_none_response(responses)
+[32m    202[39m     [38;5;28;01mif[39;00m http_response [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m--> [39m[32m203[39m         http_response = [38;5;28;01mawait[39;00m [38;5;28mself[39m._send(request)
+[32m    204[39m [38;5;28;01mexcept[39;00m HTTPClientError [38;5;28;01mas[39;00m e:
+[32m    205[39m     [38;5;28;01mreturn[39;00m ([38;5;28;01mNone[39;00m, e)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/endpoint.py:305[39m, in [36mAioEndpoint._send[39m[34m(self, request)[39m
+[32m    304[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_send[39m([38;5;28mself[39m, request):
+[32m--> [39m[32m305[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m.http_session.send(request)
+
+[36mFile [39m[32m~/micromamba/envs/feedback-cookbook-dev/lib/python3.14/site-packages/aiobotocore/httpsession.py:290[39m, in [36mAIOHTTPSession.send[39m[34m(self, request)[39m
+[32m    284[39m         [38;5;28;01mraise[39;00m ReadTimeoutError(endpoint_url=request.url, error=e)
+[32m    285[39m [38;5;28;01mexcept[39;00m (
+[32m    286[39m     ClientConnectorError,
+[32m    287[39m     ClientConnectionError,
+[32m    288[39m     socket.gaierror,
+[32m    289[39m ) [38;5;28;01mas[39;00m e:
+[32m--> [39m[32m290[39m     [38;5;28;01mraise[39;00m EndpointConnectionError(endpoint_url=request.url, error=e)
+[32m    291[39m [38;5;28;01mexcept[39;00m asyncio.TimeoutError [38;5;28;01mas[39;00m e:
+[32m    292[39m     [38;5;28;01mraise[39;00m ReadTimeoutError(endpoint_url=request.url, error=e)
+
+[31mEndpointConnectionError[39m: Could not connect to the endpoint URL: "https://js2.jetstream-cloud.org:8001/pythia?list-type=2&prefix=ClimKern%2Fkernels%2FERA5%2FTOA&delimiter=%2F&encoding-type=url"
