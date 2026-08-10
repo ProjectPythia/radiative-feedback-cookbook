@@ -25,4 +25,4 @@ dependencies:
   - h5netcdf
   - pip
   - pip:
-    - climkern
+    - git+https://github.com/brian-rose/climkern.git@stream # a modified version that streams the kernel data
