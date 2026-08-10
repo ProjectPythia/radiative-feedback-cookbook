@@ -24,6 +24,7 @@ project:
         - file: notebooks/foundations/energy-balance-model.ipynb
         - file: notebooks/foundations/manual-calc.ipynb
         - file: notebooks/foundations/climkern-calc.ipynb
+        - file: notebooks/foundations/multi-model.ipynb
     - title: Appendix
       children:
         - file: references.md
